@@ -1,0 +1,13 @@
+w new Error("HTTP " + r.status);
+return r.json();
+})
+.then(paint)
+.catch(function (err) {
+fail("Could not load data/directives.json — " + err.message +
+". Serve via http://127.0.0.1:8765/ledger.html (not file://).");
+document.getElementById("ledger").innerHTML = "";
+});
+})();
+</script>
+</body>
+</html>
