@@ -1,0 +1,104 @@
+{
+  "from": "CIO",
+  "to": [
+    "CPO",
+    "CSO",
+    "CEO"
+  ],
+  "action": "replace_EXAMPLE_DATA",
+  "board_path": "data/board.json",
+  "card": {
+    "id": "collect-w1-frontier-unit-econ",
+    "status": "active",
+    "example": false,
+    "label": null,
+    "updated_at": "2026-09-16T02:56:00-04:00",
+    "freshness_bucket": "Settled",
+    "headline": "Frontier unit economics collide: Fable 5.1 cache cut vs Astra Fast surcharge vs Gemini 3.8 Flash intro cliff",
+    "link": "https://www.anthropic.com/claude-fable-and-mythos-5-1",
+    "claim": "September 2026 frontier releases are rewriting agentic unit economics more than headline benchmarks: Fable 5.1 keeps $10/$50 list but cuts cache reads to $0.25/M; GPT-6 Astra lists at $10/$50 (Fast mode 2\u00d7 on short-context tokens); Gemini 3.8 Flash holds $0.75/$3.75 intro through 2026-12-31 then doubles to $1.50/$7.50.",
+    "one_sentence_take": "Three verified pricing regimes landed in days \u2014 which becomes the default agentic spend lane this quarter is Contested between economics and capability/harness claims.",
+    "bullets": [
+      "Primary: Anthropic \u2014 Fable 5.1 $10/$50; cache reads $0.25/M (75% cut); vendor estimates ~25% typical / ~45% highly agentic savings vs Fable 5.",
+      "Primary: OpenAI pricing \u2014 gpt-6-astra short-context $10/$50; Fast mode priced at 2\u00d7 ($20/$100); cached input $1.00/M (4\u00d7 Fable cache reads).",
+      "Primary: Google \u2014 Gemini 3.8 Flash intro $0.75/$3.75 through 2026-12-31; standard $1.50/$7.50 from 2027-01-01 (blog + API pricing page).",
+      "Specialist tension: list-price winner (Flash) can lose on cost-per-task if token intensity rises; Fable cache economics win only with high hit rates / stable prefixes.",
+      "Decision surface stays open: build/buy/ship default for agentic production spend \u2014 not settled by benches alone."
+    ],
+    "explainer": "CIO pressure-test (2026-09-16): three-lane price facts corroborate across independent Primary pages. Contested is the decision frame \u2014 whether cache/intro/Fast economics dominate lane choice (Leg A) or capability/harness/distribution claims dominate and pricing is noise (Leg B). No averaged 'winner.' High is withheld on the decision; price facts alone would clear High.",
+    "point": "Unit economics moved in footnotes (cache, Fast, intro cliffs) as much as in model cards.",
+    "motive": "Labs want share of agentic spend; buyers want cost-per-task certainty before locking a default stack.",
+    "bottom_line": "Recalculate cost-per-task with your cache-hit and token-intensity profile before naming a default \u2014 list price alone misleads.",
+    "confidence": null,
+    "confidence_label": "Contested",
+    "facts_confidence": 0.86,
+    "facts_confidence_label": "High",
+    "blind_spot": "No independent same-harness cost-per-task across all three lanes; Anthropic savings and Google diligence/token-intensity claims are still mostly vendor- or analyst-mediated.",
+    "blind_spots": [
+      "No independent same-harness cost-per-task across Fable / Astra / Flash.",
+      "Anthropic 25\u201345% savings are vendor measurements on August 2026 usage mix.",
+      "Astra long-context tier ($20/$75 short\u2192long) omitted from the simple three-lane slogan.",
+      "Gemini intro cliff may induce lock-in or migrate-before-Jan behavior not yet observable."
+    ],
+    "angles": [
+      "Capability",
+      "Product/shipping",
+      "Capital"
+    ],
+    "source_classes": [
+      "Primary",
+      "Fast",
+      "Specialist"
+    ],
+    "evidence_links": [
+      "https://www.anthropic.com/claude-fable-and-mythos-5-1",
+      "https://developers.openai.com/api/docs/pricing",
+      "https://blog.google/innovation-and-ai/models-and-research/gemini-models/3-8-flash-and-3-8-flash-cyber/",
+      "https://ai.google.dev/gemini-api/docs/pricing",
+      "https://www.gradually.ai/en/llm-comparison/claude-fable-5.1-vs-gemini-3.8-flash/",
+      "https://esso.dev/blog-posts/three-frontier-models-in-72-hours-what-changed-in-september-2026",
+      "https://superpowerdaily.com/posts/fable-cache-becomes-cheaper-after-24-reuses-when-gemini-misses"
+    ],
+    "priority": "P0",
+    "displace_what": "Model-card / benchmark screenshot cycles that ignore list price, cache economics, and published intro cliffs",
+    "why_in": "Named decision surface (default agentic spend lane) + second-order path (cost-per-task reshapes what ships) inside P0",
+    "why_out": "Would kill if primary pricing pages failed to corroborate the three-lane economics or story collapsed to vendor benches only \u2014 did not happen",
+    "contested": true,
+    "contested_legs": [
+      {
+        "id": "A",
+        "claim": "Economics dominate: cache cut / Fast surcharge / intro cliff determine the default agentic spend lane this quarter.",
+        "source_classes": [
+          "Primary",
+          "Specialist"
+        ],
+        "evidence_links": [
+          "https://www.anthropic.com/claude-fable-and-mythos-5-1",
+          "https://developers.openai.com/api/docs/pricing",
+          "https://ai.google.dev/gemini-api/docs/pricing",
+          "https://superpowerdaily.com/posts/fable-cache-becomes-cheaper-after-24-reuses-when-gemini-misses"
+        ]
+      },
+      {
+        "id": "B",
+        "claim": "Capability/harness claims dominate and pricing is noise \u2014 pick the lane that wins long-horizon coding / agent evals even at higher list price.",
+        "source_classes": [
+          "Primary",
+          "Fast"
+        ],
+        "evidence_links": [
+          "https://www.anthropic.com/claude-fable-and-mythos-5-1",
+          "https://blog.google/innovation-and-ai/models-and-research/gemini-models/3-8-flash-and-3-8-flash-cyber/",
+          "https://esso.dev/blog-posts/three-frontier-models-in-72-hours-what-changed-in-september-2026"
+        ]
+      }
+    ],
+    "cio_pressure_test": {
+      "tested_at": "2026-09-16T02:56:00-04:00",
+      "kill_rule": "pass",
+      "price_facts": "High \u2014 three independent Primary pricing/launch pages corroborate CSO draft numbers",
+      "decision_frame": "Contested \u2014 Legs A/B both live; never averaged",
+      "high_withheld_reason": "Default lane choice is not settled by receipts; only the pricing facts are"
+    }
+  }
+}
