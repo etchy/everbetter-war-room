@@ -1,0 +1,113 @@
+ != null ? String(leg.id) : String(i + 1);
+return '<div class="clg-row"><span class="clg-id">Leg ' + esc(lid) +
+'</span><span class="clg-claim">' + esc(leg.claim || "") + "</span></div>";
+}).join("") + "</div>";
+}
+const sk = s.self_kill_attempt;
+if (sk && typeof sk === "object") {
+html += '<div class="conf-sk-glance"><strong>Self-kill</strong>' +
+'<span style="color:var(--warn)">' + esc(sk.outcome || "—") + "</span> · " +
+esc((sk.claim_we_might_be_wrong || "").slice(0, 160)) +
+((sk.claim_we_might_be_wrong || "").length > 160 ? "…" : "") +
+"</div>";
+}
+});
+if (factsAvg != null) {
+html += '<div class="avg-conf">Facts avg <span style="color:var(--muted);font-size:0.65rem">(facts-only · not a decision blend)</span>: <strong style="color:var(--text)">' +
+fmtPct(factsAvg) + "</strong>" +
+(cbs.facts_avg_note ? ' <span style="color:var(--muted);font-size:0.7rem">— ' + esc(cbs.facts_avg_note) + "</span>" : "") +
+"</div>";
+}
+if (!contestedFrame && (blended != null || legacyAvg != null)) {
+const show = blended != null ? blended : legacyAvg;
+html += '<div class="avg-conf">Board confidence: <strong style="color:var(--text)">' +
+fmtPct(show) + "</strong></div>";
+}
+if (contestedFrame) {
+html += '<div class="ops-line" style="color:var(--warn);margin-bottom:0.45rem">No blended board average while Contested is active.</div>';
+}
+if (!spots.length) {
+html += '<p class="empty">No open blind spots.</p>';
+} else {
+html += '<ul class="bs-list">' + spots.map(function (b) {
+return (
+"<li>" +
+'<span class="sev ' + esc(b.severity || "medium") + '">' + esc(b.severity || "medium") + "</span>" +
+"<span>" + esc(b.text) + "</span>" +
+'<span class="bs-sid">' + esc(b.story_id) + "</span>" +
+"</li>"
+);
+}).join("") + "</ul>";
+}
+el.innerHTML = html;
+}
+function renderForge(items) {
+const el = document.getElementById("process-forge");
+if (!items || !items.length) {
+el.innerHTML = '<p class="empty">No forge items.</p>';
+return;
+}
+// Valid Forge card requires to_state + kill_or_upgrade (CLO/CPO contract).
+// Densify glance: mutation / from_state / to_state / trigger_ship / kill_or_upgrade / owner_lane.
+el.innerHTML = items.map(function (f) {
+const toOk = f.to_state != null && String(f.to_state).trim() !== "";
+const kuOk = f.kill_or_upgrade != null && String(f.kill_or_upgrade).trim() !== "";
+const valid = toOk && kuOk;
+const lane = f.owner_lane || f.owner_role || "";
+if (!valid) {
+const missing = [];
+if (!toOk) missing.push("to_state");
+if (!kuOk) missing.push("kill_or_upgrade");
+return (
+'<div class="forge-item forge-invalid">' +
+'<span class="forge-status invalid">invalid</span>' +
+'<div class="forge-body">' +
+'<div class="forge-title">' + esc(f.title || f.id || "Untitled") + "</div>" +
+'<div class="forge-missing">Not a valid Forge card — missing ' + esc(missing.join(", ")) + "</div>" +
+"</div>" +
+"</div>"
+);
+}
+const ku = String(f.kill_or_upgrade).toLowerCase();
+const kuClass = ku.indexOf("kill") >= 0 ? "ff-kill" : (ku.indexOf("upgrade") >= 0 ? "ff-upgrade" : "");
+function field(key, val, extraClass) {
+return (
+'<div class="forge-field' + (extraClass ? " " + extraClass : "") + '">' +
+'<div class="ff-k">' + esc(key) + "</div>" +
+'<div class="ff-v">' + esc(val == null || val === "" ? "—" : String(val)) + "</div>" +
+"</div>"
+);
+}
+return (
+'<div class="forge-item forge-valid">' +
+'<span class="forge-status ' + esc(f.status || "") + '">' + esc((f.status || "").replace(/_/g, " ")) + "</span>" +
+'<div class="forge-body">' +
+'<div class="forge-title">' + esc(f.title || f.id || "") + "</div>" +
+'<div class="forge-fields">' +
+field("mutation", f.mutation) +
+field("from_state", f.from_state) +
+field("to_state", f.to_state) +
+field("trigger_ship", f.trigger_ship) +
+field("kill_or_upgrade", f.kill_or_upgrade, kuClass) +
+field("owner_lane", lane) +
+"</div>" +
+"</div>" +
+'<span class="forge-owner">' + esc(lane) + "</span>" +
+"</div>"
+);
+}).join("");
+}
+function renderOrg(org) {
+const el = document.getElementById("org-pulse");
+if (org.dna && org.dna.motto) {
+document.getElementById("dna-motto").textContent = org.dna.motto;
+}
+const pulse = org.org_pulse || {};
+const cadence = pulse.cadence || {};
+const blockers = pulse.open_blockers || [];
+const streams = pulse.stream_map || [];
+const wave = pulse.wave || {};
+let ops = '<div class="ops-grid">';
+ops += '<div class="ops-panel"><h3>Cadence health</h3>';
+ops += '<div class="ops-line"><strong>Formal:</strong> ' + esc(cadence.formal || "—") + '</div>';
+ops += '<div class="ops-line"><strong>Last ad-hoc:</strong> ' + esc(cadence.last
