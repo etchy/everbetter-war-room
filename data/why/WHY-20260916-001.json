@@ -1,0 +1,79 @@
+{
+  "meta": {
+    "id": "WHY-20260916-001",
+    "owner": "WHY",
+    "filed_at": "2026-09-16T03:01:44-04:00",
+    "wave": "1–2a",
+    "scope": "Standing rules audit per CEO go",
+    "sources": [
+      "data/org.json",
+      "data/coverage.json",
+      "data/heresy.json",
+      "data/board.json",
+      "data/directives.json",
+      "../learning/README.md",
+      "multi-agent-command-chain skill"
+    ],
+    "dna": "good → better → best, never rest"
+  },
+  "verdict_summary": {
+    "keep_living_why": ["Done/Next/Stuck quiet replies", "EXAMPLE-off production board", "CEO-only CreateAgent"],
+    "rewrite_now": ["Outside-channel exile / blk-tlc standing", "Formal 09:00+16:00 as soft gate", "Dark-watch absolute hold", "Hold 2b/2c falsify wording (stale post-Contested)"],
+    "kill": []
+  },
+  "filings": [
+    {
+      "rule": "Done/Next/Stuck-only (no ACK / standing-by / membership checks)",
+      "stated_why": "Quiet command chain — cut ACK theater; reply only when status advances.",
+      "real_why": "Agent rooms drown decision surfaces in noise. Living why: a message must move Done, name Next, or clear Stuck with a named clearer — otherwise silence.",
+      "who_it_blocks": "Social glue / reflexive ACKs; also risks burying first-pass nuance if misread as 'never explain.'",
+      "swift_fix": "rewrite — Keep. Clarify exception: one Why/IRRE/TLC filing per wave is Done, not chatter. Substantive filings never count as ACK theater.",
+      "kill_if_we_keep_it": "If silence hides a named Stuck >1 formal window, or if Why/IRRE/TLC filings are rejected as 'not Done/Next/Stuck format' when they ARE the decision surface."
+    },
+    {
+      "rule": "Quiet formal cadence 09:00 + 16:00 ET weekdays → CEO",
+      "stated_why": "Batch status; reduce ad-hoc ping.",
+      "real_why": "Batching is good. Soft-gating blockers until the clock is dogma — no living link to a decision surface when Stuck already has a clearer.",
+      "who_it_blocks": "Any seat with a named Stuck that needs CEO/COO mid-cycle; Delivery Ops tempo.",
+      "swift_fix": "rewrite — Formal windows = batch pulse only. Stuck with named clearer fires off-cadence. Ad-hoc last_adhoc stays legal.",
+      "kill_if_we_keep_it": "If any agent waits for 09:00/16:00 to report a named blocker already owned by a clearer."
+    },
+    {
+      "rule": "Channel-cap workaround — TLC / IRRE / Why outside_war_room; blk-tlc standing forever",
+      "stated_why": "Heresy/DNA/Why pressure from outside; avoid ops channel noise. Cap workarounds implied by seats living outside the War Room channel.",
+      "real_why": "Separation of pressure bodies from ops chatter is a method. 'Standing outside forever' with clearer=CEO fold and no fold criteria is bureaucracy theater — the blocker exists to exist.",
+      "who_it_blocks": "TLC heresy absorb latency into CSO/CIO; IRRE↔ops DNA elevation; Why filings reaching the wall; CEO as eternal fold bottleneck.",
+      "swift_fix": "rewrite — Outside = method, not exile. Sunset blk-tlc as standing. Fold criteria: (a) named CEO wave, OR (b) heresy/filing needs C-suite absorb within 24h, OR (c) decision surface on board requires the outside seat. Keep optional outside for pure heresy drafting.",
+      "kill_if_we_keep_it": "If blk-tlc still marked standing with no fold criteria after one more Contested card, or if TLC Frame pressure is not absorbed into coverage.json within 24h of filing."
+    },
+    {
+      "rule": "Wave 2 hire gates — CEO-only CreateAgent; hold 2b managers / 2c specialists; hire gated on falsify bar",
+      "stated_why": "Don't staff to 30 before falsify receipts; COO plans, zero creates; Phase 2a leads only.",
+      "real_why": "CEO-only CreateAgent has living why: irreversible org mutation needs one throat. Hold 2b/2c 'until falsify' is STALE — P0 already Contested/SURVIVES with self_kill receipt; Phase 2a already hired. Remaining hold needs a NEW decision surface (capacity wall + receipts), not the pre-Contested slogan.",
+      "who_it_blocks": "COO seat-map execution; CPO/CIO leads needing managers when capacity walls appear; risk of CEO hire bottleneck.",
+      "swift_fix": "rewrite — KEEP CEO-only CreateAgent. REPLACE hold wording: 2b/2c unlock when DOL names a capacity wall AND ≥1 Contested (or Killed-with-receipt) watch exists (already true) AND CEO signs a named phase cut. Drop 'until falsify' as if Contested never happened.",
+      "kill_if_we_keep_it": "If 2b stays held after DOL files a capacity wall + second Contested/Kill receipt, with no CEO phase cut within one formal cadence."
+    },
+    {
+      "rule": "EXAMPLE-off production — board/cards must ship example:false; EXAMPLE DATA retired",
+      "stated_why": "Don't treat placeholders as the living board.",
+      "real_why": "Living why tied to decision surface: production board drives allocate/build decisions. Demo data masquerading as Contested is coverage theater.",
+      "who_it_blocks": "CPO/BPL UX experiments that need mock cards for wall iteration.",
+      "swift_fix": "rewrite — KEEP for production paths (board.json active_stories, coverage live). Explicit sandbox exception: labeled mock path or `example: true` ONLY outside production board; never in active_stories.",
+      "kill_if_we_keep_it": "If EXAMPLE ban blocks a named BPL wall UX experiment with nowhere legal to put mocks."
+    },
+    {
+      "rule": "Dark-watch rules — w1-02 / w1-03 dark until P0 dies or graduates; reactivation = CSO go only",
+      "stated_why": "TLC Frame 3 / IRRE collapse — one assassination target; anti coverage theater.",
+      "real_why": "Living why: focus speed-to-falsify on P0. Absolute dark with no Primary-interrupt clause becomes dogma — distribution/capital regime shifts can outrun a Contested econ card.",
+      "who_it_blocks": "CSL/CSO on distribution & capital gravity wells; risk of missing named ship-date / $ / docket Primaries.",
+      "swift_fix": "rewrite — KEEP single P0 focus. ADD interrupt: any Primary with named ship-date, $, or docket on a dark watch forces CSO reactivate review within 24h (not wait for P0 death). CSL may flag; CSO still goes.",
+      "kill_if_we_keep_it": "If a named Primary distribution default / capex / docket lands and dark hold survives >24h without CSO reactivate review."
+    }
+  ],
+  "next_pressure": {
+    "owners": ["CEO", "COO", "CSO", "CSL"],
+    "ask": "Absorb rewrites into org.json (blk-tlc + hire hold wording + cadence note) and coverage.json (dark interrupt clause) this wave.",
+    "why_chair_next": "One follow-up filing only if a rewrite is refused without a living why."
+  }
+}
