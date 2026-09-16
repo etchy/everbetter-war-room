@@ -1,0 +1,115 @@
+_adhoc_label || cadence.last_adhoc || "—") + '</div>';
+ops += '<div class="ops-line"><strong>Next formal:</strong> ' + esc(cadence.next_formal_label || cadence.next_formal || "—") + '</div>';
+ops += '</div>';
+ops += '<div class="ops-panel"><h3>Open blockers</h3><ul>';
+if (!blockers.length) {
+ops += '<li>None open</li>';
+} else {
+blockers.forEach(function (b) {
+ops += '<li><strong>' + esc(b.title) + '</strong> · clearer ' + esc(b.clearer) +
+' · ' + esc(b.age_note || "") +
+(b.standing ? ' · standing' : '') + '</li>';
+});
+}
+ops += '</ul></div>';
+ops += '<div class="ops-panel"><h3>Stream map</h3><ul>';
+if (!streams.length) {
+ops += '<li>No streams</li>';
+} else {
+streams.forEach(function (s) {
+const st = (s.status || "").replace(/\s+/g, "_");
+const dna = s.dna || s.owner === "IRRE";
+const inner = '<strong>' + esc(s.owner) + '</strong> — ' + esc(s.item) +
+'<span class="ops-status ' + esc(st) + '">' + esc((s.status || "").replace(/_/g, " ")) + '</span>';
+if (dna) {
+ops += '<li class="stream-dna"><span class="dna-tag">DNA · never rest</span>' + inner + '</li>';
+} else {
+ops += '<li>' + inner + '</li>';
+}
+});
+}
+ops += '</ul></div>';
+ops += '<div class="ops-panel"><h3>Wave progress</h3>';
+ops += '<div class="ops-line"><strong>Wave:</strong> ' + esc(wave.current != null ? wave.current : (org.meta && org.meta.wave) || 1) + '</div>';
+ops += '<div class="ops-line"><strong>Seats live:</strong> ' + esc(wave.seats_live || "—") + '</div>';
+ops += '<div class="ops-line">' + esc(wave.seats_note || "") + '</div>';
+ops += '<div class="ops-line"><strong>Wave 2 target:</strong> ' + esc(wave.wave2_target || "—") + '</div>';
+ops += '</div>';
+ops += '</div>';
+const roles = org.roles || [];
+let htmlOut = ops + '<div class="roles">' + roles.map(function (r) {
+const outside = r.outside_war_room ? " outside" : "";
+return (
+'<div class="role-card' + outside + '">' +
+'<div class="code">' + esc(r.code) + "</div>" +
+'<div class="title">' + esc(r.title) + "</div>" +
+'<div class="focus">' + esc(r.focus) + "</div>" +
+(r.outside_war_room ? '<div class="outside-badge">Outside War Room</div>' : "") +
+(r.standing_body ? '<div class="outside-badge" style="color:var(--signal)">Standing body</div>' : "") +
+"</div>"
+);
+}).join("") + "</div>";
+const tl = (org.meta && org.meta.time_law) || {};
+htmlOut += '<p class="founder-note">Founder has no operating role · Wave ' +
+esc((org.meta && org.meta.wave) || 1) + " roster · Org Pulse updated " +
+esc(pulse.updated_at || "—") +
+(tl.law ? " · TIME-LAW-001: " + esc(tl.law) + " (company-time unless real_ET)" : "") +
+"</p>";
+el.innerHTML = htmlOut;
+}
+function applyOpsAging(board, freshness) {
+const oa = (freshness && freshness.ops_aging) || { fresh_hours: 2, aging_hours: 8 };
+const freshH = Number(oa.fresh_hours) || 2;
+const agingH = Number(oa.aging_hours) || 8;
+const now = Date.now();
+(board.active_stories || []).forEach(function (s) {
+if (!s.updated_at) return;
+const t = Date.parse(s.updated_at);
+if (Number.isNaN(t)) return;
+const hours = (now - t) / 36e5;
+if (hours > agingH) {
+s._opsAge = "stale";
+s._opsAgeLabel = "STALE";
+} else if (hours > freshH) {
+s._opsAge = "aging";
+s._opsAgeLabel = "AGING";
+} else {
+s._opsAge = "fresh";
+s._opsAgeLabel = "FRESH";
+}
+});
+}
+function renderAll(board, org, source) {
+const src = document.getElementById("data-source");
+const hasExample = (board.active_stories || []).some(function (s) {
+return s.example || s.label === "EXAMPLE DATA";
+});
+if (source === "live") {
+src.textContent = hasExample ? "LIVE JSON · EXAMPLE MIXED" : "LIVE · PRODUCTION";
+src.className = hasExample ? "pill warn" : "pill live";
+} else {
+src.textContent = "FALLBACK (cached live)";
+src.className = "pill production";
+}
+document.getElementById("updated-at").textContent =
+"updated " + ((board.meta && board.meta.updated_at) || "—");
+document.getElementById("board-version").textContent =
+"v" + ((board.meta && board.meta.version) || "?");
+renderStories(board.active_stories);
+renderPolyangle(board.active_stories, board.polyangle_board);
+renderConfidence(board);
+renderForge(board.process_forge);
+renderOrg(org);
+}
+async function boot() {
+try {
+const [bRes, oRes, fRes] = await Promise.all([
+fetch("data/board.json", { cache: "no-store" }),
+fetch("data/org.json", { cache: "no-store" }),
+fetch("data/freshness.json", { cache: "no-store" }).catch(function () { return null; })
+]);
+if (!bRes.ok || !oRes.ok) throw new Error("fetch status");
+const board = await bRes.json();
+const org = await oRes.json();
+let freshness = null;
+if (fRes && fR
