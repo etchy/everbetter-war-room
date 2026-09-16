@@ -1,0 +1,31 @@
+{
+  "id": "D-020",
+  "title": "Restructure — ship intel, stop freezing on one Contested",
+  "status": "active",
+  "filed_at": "2026-09-16T05:55:33-04:00",
+  "filed_as": "COO ops restructure (founder kickstart)",
+  "dna_tag": "better",
+  "problem": "Org/process outran product. One Contested P0 with open concrete next_receipt froze the portfolio. Board idle since ~03:47 ET while headcount and rules grew.",
+  "law": [
+    "Contested + filed next_receipt + active hunt = SHIPPABLE. Does not freeze portfolio.",
+    "Sole-P0 absolute dark is revoked for w1-02. CSO lights w1-02 as P1 Active this company-week with full write-path (self_kill at open, CSO fields, CIO pressure-test).",
+    "w1-03 stays dark unless Primary interrupt (real_ET 24h CSO review).",
+    "Hire freeze: no CreateAgent / no 2b–2c until ≥2 Active example:false cards on the board.",
+    "Success gate (company-time ASAP, real_ET today): second Active card live OR honest Kill of P0 — not another process artifact.",
+    "CIO/TBL keep concrete next_receipt hunt; publish nearest-fill gaps as blind_spots on the card — no fake-land, no portfolio freeze.",
+    "Founder contact: War Room C-suite may answer status; finance/recruiting stay via CEO seat only. No title theater."
+  ],
+  "owners": {
+    "CSO": "Open w1-02 to Active P1; keep P0 Contested held",
+    "CIO": "Pressure-test new card; continue P0 hunt; update blind_spots",
+    "CPO": "Multi-card wall honesty; Contested glance stays warm (Live)",
+    "CLO": "One Forge mutation only if this restructure changes a rule (this directive IS the mutation)",
+    "DOL": "Tempo: wall moves when cards move; escalate Settled-on-Contested only",
+    "COO": "Enforce hire freeze + success gate; cadence batches"
+  },
+  "kill": [
+    "Waiting on perfect three-lane receipt before any other coverage",
+    "Status theater / ACK / founder approval loops",
+    "Hiring into a one-card board"
+  ]
+}

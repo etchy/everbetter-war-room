@@ -17,8 +17,17 @@
     "dna": "good → better → best, never rest"
   },
   "verdict_summary": {
-    "keep_living_why": ["Done/Next/Stuck quiet replies", "EXAMPLE-off production board", "CEO-only CreateAgent"],
-    "rewrite_now": ["Outside-channel exile / blk-tlc standing", "Formal 09:00+16:00 as soft gate", "Dark-watch absolute hold", "Hold 2b/2c falsify wording (stale post-Contested)"],
+    "keep_living_why": [
+      "Done/Next/Stuck quiet replies",
+      "EXAMPLE-off production board",
+      "CEO-only CreateAgent"
+    ],
+    "rewrite_now": [
+      "Outside-channel exile / blk-tlc standing",
+      "Formal 09:00+16:00 as soft gate",
+      "Dark-watch absolute hold",
+      "Hold 2b/2c falsify wording (stale post-Contested)"
+    ],
     "kill": []
   },
   "filings": [
@@ -72,7 +81,12 @@
     }
   ],
   "next_pressure": {
-    "owners": ["CEO", "COO", "CSO", "CSL"],
+    "owners": [
+      "CEO",
+      "COO",
+      "CSO",
+      "CSL"
+    ],
     "ask": "Absorb rewrites into org.json (blk-tlc + hire hold wording + cadence note) and coverage.json (dark interrupt clause) this wave.",
     "why_chair_next": "One follow-up filing only if a rewrite is refused without a living why."
   }
