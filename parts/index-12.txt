@@ -143,4 +143,4 @@ const claimWrong = sk.claim_we_might_be_wrong || "—";
 const retire = (sk.evidence_that_would_retire_it || []).map(function (e) {
 return "<li title=\"" + esc(e) + "\">" + esc(e) + "</li>";
 }).join("");
-const note = sk.outcome_note ||
+const note = sk.outcome_note || 
