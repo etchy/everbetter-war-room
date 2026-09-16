@@ -137,7 +137,7 @@
 "status": "live"
 },
 {
-"code": "CPO",
+"owner": "CPO",
 "item": "board v0 wall + Board Product Lead (Wave 2a)",
 "status": "live"
 },
