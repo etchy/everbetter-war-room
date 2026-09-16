@@ -1,1 +1,176 @@
-<!-- pages-bridge source: index-4.txt -->
+iv class="brand">
+<h1>Everbetter</h1>
+<span class="tag">War Room</span>
+</div>
+<nav class="nav-toggle" aria-label="View toggle">
+<a href="index.html" class="active">War Room</a>
+<a href="ledger.html">Quiet Ledger</a>
+</nav>
+<div class="meta-line" id="meta-line">
+<span class="pill" id="data-source">loading…</span>
+<span id="updated-at"></span>
+<span id="board-version"></span>
+</div>
+</header>
+<section class="dna" aria-label="DNA motto">
+<div class="label">DNA</div>
+<div class="motto" id="dna-motto">good, better, best. Never put to rest, until good is better, and better is best.</div>
+</section>
+<div class="grid">
+<div class="col">
+<section class="panel" id="sec-active">
+<div class="panel-head">
+<h2>Active Stories</h2>
+<span class="count" id="story-count"></span>
+</div>
+<div class="panel-body" id="active-stories">
+<p class="empty">Loading…</p>
+</div>
+</section>
+</div>
+<div class="col">
+<section class="panel" id="sec-poly">
+<div class="panel-head">
+<h2>Polyangle Board</h2>
+<span class="count" id="poly-count"></span>
+</div>
+<div class="panel-body" id="polyangle-board">
+<p class="empty">Loading…</p>
+</div>
+</section>
+<section class="panel" id="sec-conf">
+<div class="panel-head">
+<h2>Confidence / Blind Spots</h2>
+</div>
+<div class="panel-body" id="confidence-panel">
+<p class="empty">Loading…</p>
+</div>
+</section>
+<section class="panel" id="sec-forge">
+<div class="panel-head">
+<h2>Process Forge</h2>
+<span class="count">improvements</span>
+</div>
+<div class="panel-body" id="process-forge">
+<p class="empty">Loading…</p>
+</div>
+</section>
+<section class="panel" id="sec-org">
+<div class="panel-head">
+<h2>Org Pulse — Wave 1</h2>
+</div>
+<div class="panel-body" id="org-pulse">
+<p class="empty">Loading…</p>
+</div>
+</section>
+</div>
+</div>
+<footer>
+<span>JSON is the update surface · edit data/*.json · refresh</span>
+<span>Formats can evolve · everything is a launch pad</span>
+</footer>
+</div>
+<script>
+/* Embedded fallback — EXAMPLE DATA only (used if fetch fails) */
+const FALLBACK_BOARD = {
+"meta": {
+"board_id": "everbetter-war-room",
+"version": "0.2.4-tbl-legb",
+"updated_at": "2026-09-16T03:13:00-04:00",
+"note": "LIVE \u2014 Job B self_kill upgrade (TBL). Contested held; EXAMPLE retired.",
+"cio_feed_contract": {
+"angles_allowed": [
+"Capability",
+"Product/shipping",
+"Safety/policy",
+"Capital",
+"Geopolitics/reg",
+"Talent/org"
+],
+"source_classes_allowed": [
+"Primary",
+"Fast",
+"Specialist",
+"Adversarial/state",
+"Markets"
+],
+"freshness_buckets": [
+"Breaking",
+"Developing",
+"Live",
+"Settled",
+"Stale"
+],
+"contested_freshness_max": [
+"Breaking",
+"Developing"
+]
+},
+"cso_coverage": {
+"file": "data/coverage.json",
+"version": "0.1.0",
+"updated_at": "2026-09-16T03:04:15-04:00",
+"status": "p0_assassination_only",
+"fields_required": [
+"priority",
+"displace_what",
+"why_in",
+"why_out"
+],
+"first_collect_id": "collect-w1-frontier-unit-econ",
+"priority_final": true,
+"graduation": "Contested",
+"assassination_target": "watch-w1-01",
+"linked_card": "collect-w1-frontier-unit-econ",
+"self_kill_attempt": true,
+"why_dark_hold": "absolute",
+"primary_interrupt_sla_hours": 24
+},
+"confidence_map": {
+"High": ">=0.75",
+"Medium": "0.45-0.74",
+"Low": "<0.45",
+"Contested": "confidence null + contested:true + contested_legs (both) + next_receipt required \u2014 never averaged; freshness max Live (Settled forbidden)"
+},
+"write_fields": [
+"claim",
+"angles",
+"source_classes",
+"confidence",
+"blind_spot",
+"freshness_bucket",
+"evidence_links",
+"headline",
+"link",
+"priority",
+"displace_what",
+"why_in",
+"why_out",
+"contested",
+"contested_legs",
+"self_kill_attempt",
+"next_receipt",
+"next_receipt_detail"
+],
+"cio_status": {
+"first_real_card": "collect-w1-frontier-unit-econ",
+"pressure_tested_at": "2026-09-16T02:56:00-04:00",
+"example_data": "retired",
+"self_kill_attempted_at": "2026-09-16T03:02:30-04:00",
+"self_kill_result": "SURVIVES_Contested_JobB_upgrade",
+"irre_stall": "SURVIVES",
+"self_kill_outcome": "Contested",
+"falsify_receipt": "data/tbl_job_b_falsify_hunt.json + board self_kill_attempt",
+"irre_schema": "matched",
+"tbl_job_b": "upgrade_self_kill",
+"next_receipt_filed": true,
+"next_receipt_reasserted_at": "2026-09-16T03:05:15-04:00",
+"leg_b_receipts": "Primary+Specialist attached (TBL)",
+"leg_b_attached_at": "2026-09-16T03:05:00-04:00"
+},
+"cso_status": {
+"priority_final_card": "collect-w1-frontier-unit-econ",
+"priority_final_at": "2026-09-16T02:56:25-04:00",
+"graduation": "Contested",
+"self_kill_attempt_at": "2026-09-16T02:56:49-04:00",
+"portfolio": "P0 only; w1-02/03 dar
