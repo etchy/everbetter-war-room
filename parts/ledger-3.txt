@@ -1,1 +1,124 @@
-<!-- pages-bridge source: ledger-3.txt -->
+chip status-" + String(st || "queued").replace(/\s+/g, "_");
+}
+var DNA_OK = { good: 1, better: 1, best: 1, stalled: 1 };
+function dnaTag(tag) {
+var t = String(tag == null ? "" : tag).toLowerCase().trim();
+return DNA_OK[t] ? t : "unset";
+}
+function dnaClass(tag) {
+return "chip dna-" + dnaTag(tag);
+}
+/* Normalize alt schema (exec_view/deep/outcome) → Orbit fields without inventing content */
+function normalizeDirective(d) {
+if (!d) return d;
+if (d.status != null && (d.open_items != null || d.one_liner != null)) return d;
+var ev = d.exec_view || {};
+var deep = d.deep || {};
+var out = d.outcome || {};
+function joinMaybe(v) {
+if (Array.isArray(v)) return v.filter(Boolean).join(" · ");
+return v || "";
+}
+var deliv = (deep.deliverables || []).map(function (x) {
+return (typeof x === "string") ? { name: x, path: null, link: null } : x;
+});
+return {
+id: d.id,
+title: d.title,
+status: ev.status || "queued",
+dna_tag: d.dna_tag || out.dna_score || null,
+one_liner: ev.one_liner || d.seed || "",
+actions_done: ev.actions_done || d.actions_done || [],
+open_items: ev.open || d.open_items || [],
+flight_path: d.flight_path || [],
+ground_truth: d.ground_truth || {
+plan: joinMaybe(deep.plan) || (d.seed || ""),
+thought_process: joinMaybe(deep.thought_process),
+deliverables: deliv,
+results: out.results || [],
+irre_notes: deep.irre_notes || [],
+tlc_notes: deep.tlc_notes || []
+},
+issued_at: d.issued_at,
+seed: d.seed
+};
+}
+function bullets(arr, emptyLabel) {
+if (!arr || !arr.length) {
+return '<p class="sealed">' + esc(emptyLabel || "— sealed —") + "</p>";
+}
+return "<ul>" + arr.map(function (x) {
+return "<li title=\"" + esc(x) + "\">" + esc(x) + "</li>";
+}).join("") + "</ul>";
+}
+function renderFlight(path) {
+if (!path || !path.length) return "<p class=\"sealed\">No arc logged.</p>";
+var sorted = path.slice().sort(function (a, b) { return (a.seq || 0) - (b.seq || 0); });
+return '<ol class="arc">' + sorted.map(function (step) {
+return "<li>" +
+'<span class="who">' + esc(step.who) + "</span>" +
+'<span class="what">' + esc(step.what) + "</span>" +
+(step.when ? '<span class="when">' + esc(step.when) + "</span>" : "") +
+"</li>";
+}).join("") + "</ol>";
+}
+function renderDeliverables(list) {
+if (!list || !list.length) return "<p class=\"sealed\">None yet.</p>";
+return list.map(function (d) {
+var linkBit = d.link
+? ' <a href="' + esc(d.link) + '" target="_blank" rel="noopener">open</a>'
+: "";
+var pathBit = d.path
+? '<span class="path">' + esc(d.path) + "</span>"
+: "";
+return '<div class="deliverable">' +
+'<span class="name">' + esc(d.name) + "</span>" + linkBit +
+pathBit +
+"</div>";
+}).join("");
+}
+function needsExpand(text, limit) {
+return String(text || "").length > (limit || 140);
+}
+function gtTextBlock(label, body, full) {
+var t = (body && String(body).trim()) ? String(body) : "—";
+var long = needsExpand(t, 140);
+return '<div class="gt-block' + (full ? " full" : "") + '">' +
+"<h5>" + esc(label) + "</h5>" +
+"<p" + (long ? ' title="' + esc(t) + '"' : "") + ">" + esc(t) + "</p>" +
+(long ? '<button type="button" class="gt-more" data-gt-more>Expand</button>' : "") +
+"</div>";
+}
+function gtListBlock(label, arr, emptyLabel, extraClass, full) {
+var list = (arr || []).filter(Boolean);
+var body = list.length
+? bullets(list)
+: '<p class="sealed">' + esc(emptyLabel || "—") + "</p>";
+var long = list.some(function (x) { return needsExpand(x, 120); }) || list.length > 3;
+var n = list.length ? '<span class="gt-n">' + list.length + "</span>" : "";
+var cls = "gt-block" + (full ? " full" : "") + (extraClass ? " " + extraClass : "");
+return '<div class="' + cls + '">' +
+"<h5>" + esc(label) + n + "</h5>" +
+body +
+(long ? '<button type="button" class="gt-more" data-gt-more>Expand</button>' : "") +
+"</div>";
+}
+function gtDeliverablesBlock(list) {
+var items = list || [];
+var long = items.length > 3 || items.some(function (d) {
+return needsExpand((d && (d.path || d.name)) || "", 80);
+});
+var n = items.length ? '<span class="gt-n">' + items.length + "</span>" : "";
+return '<div class="gt-block full">' +
+"<h5>Deliverables" + n + "</h5>" +
+renderDeliverables(items) +
+(long ? '<button type="button" class="gt-more" data-gt-more>Expand</button>' : "") +
+"</div>";
+}
+function renderGround(gt) {
+if (!gt) return "<p class=\"sealed\">No ground truth yet.</p>";
+var irre = (gt.irre_notes || []).filter(Boolean);
+var tlc = (gt.tlc_notes || []).filter(Boolean);
+var html = '<div class="gt-grid">';
+html += gtTextBlock("Plan", gt.plan, false);
+html += gtTextBlock("Thought", gt.thought_process, fal
