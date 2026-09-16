@@ -1,0 +1,32 @@
+{
+  "from": "TBL",
+  "type": "self_kill_attempt",
+  "schema": "IRRE_v1",
+  "card_id": "collect-w1-frontier-unit-econ",
+  "watch_id": "watch-w1-01",
+  "note": "Latest self_kill is Job B upgrade by TBL; prior CIO attempt preserved in prior_attempt_at",
+  "self_kill_attempt": {
+    "claim_we_might_be_wrong": "The 'unit economics rewrite defaults' frame overstates decision impact: Flash already wins list price by ~10× so the Sep moves are incremental not regime-changing for cost buyers; Fable's 25–45% savings are vendor-estimated on one usage mix; Astra Fast 2× is optional; and much agentic spend may ride seat licenses / cloud credits / distribution, not raw API list — so pricing footnotes may be noise vs capability/harness/distribution (Leg B wins by default without Contested theater).",
+    "evidence_that_would_retire_it": [
+      "Primary share or procurement data showing default agentic production lanes chosen by non-API instruments (seats, credits, exclusive distribution) with list price inert",
+      "Primary pricing pages retract or contradict the three-lane numbers",
+      "Independent same-harness cost-per-task across Fable/Astra/Flash showing lanes converge within noise so economics cannot displace capability"
+    ],
+    "attempted_at": "2026-09-16T03:02:30-04:00",
+    "outcome": "Contested",
+    "outcome_note": "Job B falsify upgrade (TBL). Pricing Primaries still corroborate three-lane numbers — pricing_contradiction kill fails. kill_LegA fails — no Primary procurement share proving list price inert; OpenAI Enterprise token-based rate card cuts the other way. Upgrade: Specialist token-intensity/cache receipts now on the Contested surface — DeepSWE same-harness Astra~$6.52/~30k out vs Flash~$2.36/~143k at tied 74%; AA Fable 5.1 ~1.7× output tokens vs Fable 5 ($3.76/task despite cache cut); Firecrawl measured Claude-lane cache re-reads (e.g. 1.69M cached for $0.42 vs Fable 5 1.34M/$1.34). Hold Contested: Legs A/B both live; confidence null; never averaged. Gap remains: no independent same-harness cost-per-task jointly including Fable 5.1 + Astra + Flash. EXAMPLE stays retired (example:false). Hunt: data/tbl_job_b_falsify_hunt.json.",
+    "evidence_checked_now": {
+      "pricing_contradiction": "FAIL_TO_KILL — Anthropic, OpenAI, Google Primaries still corroborate three-lane numbers (re-verified Job B)",
+      "list_price_already_dominated": "PARTIAL — Flash intro far cheaper; does not retire frontier-lane economics claim",
+      "vendor_savings_estimate": "PARTIAL — AA/Firecrawl weaken High on 25–45% savings magnitude; still Contested not kill",
+      "same_harness_convergence": "PARTIAL_UPGRADE — DeepSWE same-harness Astra vs Flash intensity/cost live; Fable 5.1 absent from that panel — three-lane joint same-harness still ABSENT",
+      "non_API_default_share": "FAIL_TO_KILL — no Primary share proving list price inert; OpenAI token-based Enterprise rate card supports metered API relevance (Leg A)",
+      "measured_cache_token_intensity": "UPGRADE — Firecrawl Claude-lane measured cache volumes; AA Fable output-intensity; DeepSWE Astra/Flash token intensity — falsify surface upgraded, Contested held"
+    },
+    "attempted_by": "TBL",
+    "schema": "IRRE_v1",
+    "prior_attempt_at": "2026-09-16T02:58:30-04:00",
+    "upgrade_from": "Job B tbl_job_b_falsify_hunt.json",
+    "job_b_recommendation": "upgrade_self_kill"
+  }
+}
