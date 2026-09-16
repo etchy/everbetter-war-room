@@ -1,1 +1,146 @@
-<!-- pages-bridge source: index-12.txt -->
+WHY",
+"item": "first-principles / anti-dogma",
+"status": "live"
+}
+],
+"wave": {
+"current": 2,
+"phase": "2a",
+"seats_live": "13",
+"seats_note": "W1 C-suite + TLC/IRRE/WHY method-outside + W2a leads DOL/TBL/BPL/CSL/LSL",
+"wave2_target": "20\u201330",
+"hold_2bc": {
+"status": "held",
+"unlock_when": [
+"DOL names a capacity wall",
+"\u22651 Contested or Killed-with-receipt watch (already true)",
+"CEO signs a named phase cut"
+],
+"stale_slogan_killed": "until falsify \u2014 Contested already landed"
+},
+"hire_owner": "CEO only \u2014 COO plans, zero CreateAgent"
+},
+"sunset_blockers": [
+{
+"id": "blk-tlc",
+"sunset_at": "2026-09-16T07:04:31+00:00",
+"reason": "WHY-20260916-001 \u2014 outside = method not exile",
+"fold_criteria": "CEO wave | heresy/filing needs C-suite absorb \u226424h | board decision surface requires outside seat"
+}
+],
+"blocker_history": [
+{
+"id": "blk-tlc",
+"event": "sunset",
+"at": "2026-09-16T03:05:03-04:00",
+"by": "DOL",
+"rule": "WHY-001",
+"note": "Outside seats = method not exile \u2014 not a standing Stuck"
+},
+{
+"id": "blk-next-receipt-concrete",
+"title": "P0 next_receipt concrete gap \u2014 need three-lane same-harness OR list-price-inert Primary OR Leg B Primary that retires a leg",
+"clearer": "CIO / Truth Bar Lead",
+"age_note": "field filed; concrete evidence not satisfied (TBL)",
+"standing": false,
+"card_id": "collect-w1-frontier-unit-econ",
+"note": "Do not list as missing field \u2014 next_receipt string exists; gap is concrete receipts",
+"refined_at": "2026-09-16T07:05:11+00:00",
+"event": "dropped",
+"dropped_at": "2026-09-16T03:05:30-04:00",
+"by": "DOL",
+"reason": "COO rule correction / WHY-001"
+}
+]
+},
+"wave2": {
+"seats": [
+{
+"id": "3458403",
+"title": "Board Product Lead",
+"reports_to": "CPO",
+"focus": "Wall + Quiet Ledger product",
+"wave": "2a",
+"status": "hired"
+},
+{
+"id": "99d62213-50d6-4337-88a2-c8b095432006",
+"title": "Learning Systems Lead",
+"reports_to": "CLO",
+"focus": "After-actions, playbook mutation pipeline",
+"wave": "2a",
+"status": "hired"
+}
+]
+}
+};
+function esc(s) {
+return String(s == null ? "" : s)
+.replace(/&/g, "&amp;")
+.replace(/</g, "&lt;")
+.replace(/>/g, "&gt;")
+.replace(/"/g, "&quot;");
+}
+function confClass(c) {
+if (c == null || Number.isNaN(Number(c))) return "low";
+if (c < 0.45) return "low";
+if (c < 0.75) return "mid";
+return "";
+}
+function confLabel(c, contested) {
+if (contested) return "Contested";
+if (c == null || Number.isNaN(Number(c))) return "—";
+if (c >= 0.75) return "High";
+if (c >= 0.45) return "Medium";
+return "Low";
+}
+function fmtPct(c) {
+if (c == null || Number.isNaN(Number(c))) return "—";
+return Math.round((Number(c) || 0) * 100) + "%";
+}
+function hasReceipts(s) {
+return Array.isArray(s.evidence_links) && s.evidence_links.length > 0;
+}
+function renderStories(stories) {
+const el = document.getElementById("active-stories");
+document.getElementById("story-count").textContent = (stories || []).length + " on board";
+if (!stories || !stories.length) {
+el.innerHTML = '<p class="empty">No active stories.</p>';
+return;
+}
+el.innerHTML = stories.map(function (s) {
+const contested = !!s.contested;
+const conf = contested ? null : (s.confidence == null ? null : Number(s.confidence));
+const bullets = (s.bullets || []).map(function (b) {
+return "<li>" + esc(b) + "</li>";
+}).join("");
+const angles = (s.angles || []).map(function (a) {
+return '<span class="angle-chip">' + esc(a) + "</span>";
+}).join("");
+const sources = (s.source_classes || []).map(function (a) {
+return '<span class="angle-chip">' + esc(a) + "</span>";
+}).join("");
+const receipts = hasReceipts(s);
+const legsArr = s.contested_legs || [];
+const legs = legsArr.map(function (leg, i) {
+const lid = leg.id != null ? String(leg.id) : String(i + 1);
+const linkN = (leg.evidence_links || []).length;
+const srcLabel = (leg.source_classes || []).join("/");
+const claim = leg.claim || "";
+return (
+'<div class="contested-leg" title="' + esc(claim) + '">' +
+'<div class="leg-label"><span>Leg ' + esc(lid) + "</span>" +
+'<span class="leg-meta">' + esc(srcLabel || "—") +
+(linkN ? " · " + linkN + " ev" : "") + "</span></div>" +
+'<div class="leg-claim">' + esc(claim) + "</div>" +
+"</div>"
+);
+}).join("");
+const skBlock = (function () {
+const sk = s.self_kill_attempt;
+if (!sk || typeof sk !== "object") return "";
+const claimWrong = sk.claim_we_might_be_wrong || "—";
+const retire = (sk.evidence_that_would_retire_it || []).map(function (e) {
+return "<li title=\"" + esc(e) + "\">" + esc(e) + "</li>";
+}).join("");
+const note = sk.outcome_note ||
