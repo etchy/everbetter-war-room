@@ -1,1 +1,198 @@
-<!-- pages-bridge source: index-11.txt -->
+: 2,
+"reports_to": "COO"
+},
+{
+"code": "TBL",
+"title": "Truth Bar Lead",
+"focus": "Contested discipline, self_kill quality, pressure-tests",
+"wave": 2,
+"reports_to": "CIO"
+},
+{
+"code": "BPL",
+"title": "Board Product Lead",
+"focus": "War room wall + Quiet Ledger product",
+"wave": 2,
+"reports_to": "CPO"
+},
+{
+"code": "CSL",
+"title": "Coverage Strategy Lead",
+"focus": "Watch portfolio hygiene, kill/keep execution",
+"wave": 2,
+"reports_to": "CSO"
+},
+{
+"code": "LSL",
+"title": "Learning Systems Lead",
+"focus": "After-actions, playbook mutation pipeline",
+"wave": 2,
+"reports_to": "CLO"
+},
+{
+"code": "WHY",
+"title": "Why Chair \u2014 First Principles & Anti-Dogma Committee",
+"focus": "Living why for every rule; swift change; block unjustified SOP shutdowns of enlightenment",
+"wave": 1,
+"outside_war_room": true
+},
+{
+"code": "CFO",
+"title": "Chief Financial Officer",
+"focus": "Finance strategy, controls, cash, accounting org",
+"wave": 2
+},
+{
+"code": "CTRL",
+"title": "Controller",
+"focus": "Close, GL, policies, CoA",
+"wave": 2,
+"reports_to": "CFO"
+},
+{
+"code": "SA",
+"title": "Staff Accountant",
+"focus": "JEs, reconciliations, month-end",
+"wave": 2,
+"reports_to": "CTRL"
+},
+{
+"code": "AP",
+"title": "AP Lead",
+"focus": "Vendors, invoices, payment runs",
+"wave": 2,
+"reports_to": "CTRL"
+},
+{
+"code": "AR",
+"title": "AR / Revenue Lead",
+"focus": "Invoicing, collections, rev rec readiness",
+"wave": 2,
+"reports_to": "CTRL"
+},
+{
+"code": "FPA",
+"title": "FP&A Lead",
+"focus": "Budget, forecast, unit cost of intel",
+"wave": 2,
+"reports_to": "CFO"
+},
+{
+"code": "HOR",
+"title": "Head of Recruiting",
+"focus": "Recruiting process; DNA day-1 mandatory for all hires",
+"wave": 2
+},
+{
+"code": "RL",
+"title": "Recruiting Lead",
+"focus": "Reqs, screens, loops; DNA day-1",
+"wave": 2,
+"reports_to": "HOR"
+},
+{
+"code": "SRC",
+"title": "Sourcer",
+"focus": "Pipelines, outreach, DNA-fit signals",
+"wave": 2,
+"reports_to": "RL"
+},
+{
+"code": "ROPS",
+"title": "Recruiting Ops",
+"focus": "ATS, scheduling, DNA day-1 attestation tracking",
+"wave": 2,
+"reports_to": "HOR"
+}
+],
+"org_pulse": {
+"updated_at": "2026-09-16T07:24:39+00:00",
+"cadence": {
+"formal": "09:00 + 16:00 real_ET weekdays \u2192 CEO (batch pulse only)",
+"stuck_policy": "Stuck with named clearer fires off-cadence \u2014 do not wait for formal window",
+"last_adhoc": "2026-09-16T07:05:11+00:00",
+"last_adhoc_label": "Stuck refine: next_receipt concrete gap",
+"next_formal": "2026-09-16T09:00:00-04:00",
+"next_formal_label": "09:00 ET Wed 2026-09-16",
+"time_basis": "formal windows labeled real_ET; work between them runs company-time (TIME-LAW-001)"
+},
+"open_blockers": [
+{
+"id": "blk-next-receipt-concrete",
+"title": "P0 next_receipt concrete gap \u2014 three-lane same-harness OR list-price-inert Primary OR Leg B Primary that retires a leg",
+"clearer": "CIO / Truth Bar Lead",
+"age_note": "field filed; concrete evidence not satisfied",
+"standing": false,
+"card_id": "collect-w1-frontier-unit-econ",
+"note": "Do NOT escalate as missing field \u2014 next_receipt exists; Stuck is concrete gap only",
+"refined_at": "2026-09-16T03:05:46-04:00",
+"by": "DOL",
+"from": "CEO Stuck wording refine via COO"
+}
+],
+"stream_map": [
+{
+"owner": "COO",
+"item": "Phase 2a seat map + cadence",
+"status": "live"
+},
+{
+"code": "CPO",
+"item": "board v0 wall + Board Product Lead (Wave 2a)",
+"status": "live"
+},
+{
+"owner": "CIO",
+"item": "P0 falsify receipt attached (IRRE schema)",
+"status": "live"
+},
+{
+"owner": "CSO",
+"item": "CSL briefed; P0 lock held",
+"status": "live"
+},
+{
+"owner": "CLO",
+"item": "learning loop \u2014 feeds live (LSL)",
+"status": "live"
+},
+{
+"owner": "TLC",
+"item": "heresy frames \u2014 outside = method not exile (WHY-001)",
+"status": "method_outside"
+},
+{
+"owner": "CEO",
+"item": "hire + standing palindromes; C-suite founder channel (LOCK)",
+"status": "live"
+},
+{
+"owner": "IRRE",
+"item": "DNA enforcement \u2014 good\u2192better\u2192best, never rest",
+"status": "elevated",
+"dna": true,
+"elevation": "IRRE"
+},
+{
+"owner": "CEO",
+"item": "Wave 2 Phase 2a live; 2b/2c unlock = DOL capacity wall + CEO cut",
+"status": "live"
+},
+{
+"owner": "CSL",
+"item": "coverage portfolio hygiene \u2014 P0 only; dark holds",
+"status": "live"
+},
+{
+"owner": "DOL",
+"item": "tempo + blocker age + handoff QA + forge-005 (Contested max Live); WHY-001 off-cadence Stuck",
+"status": "live",
+"updated_at": "2026-09-16T03:05:03-04:00"
+},
+{
+"owner": "LSL",
+"item": "after-action + playbook mutation (/workspace/everbetter/learning)",
+"status": "live"
+},
+{
+"owner": "
