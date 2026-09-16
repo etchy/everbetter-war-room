@@ -1,1 +1,98 @@
-<!-- pages-bridge source: index-14.txt -->
+ esc(s.id) + "</span>" +
+'<span class="conf-meter" title="confidence">' +
+'<span class="conf-bar ' + confClass(conf) + '"><span style="width:' + ((conf == null ? 0 : conf) * 100) + '%"></span></span>' +
+confLabel(conf, contested) + " " + fmtPct(conf) +
+"</span>" +
+"</div>" +
+"<h3><a href=\"" + esc(s.link) + "\" target=\"_blank\" rel=\"noopener\">" + esc(s.headline) + "</a></h3>" +
+'<p class="take"><strong>Claim:</strong> ' + esc(s.claim || s.one_sentence_take) + "</p>" +
+contestedGlance +
+'<div class="meta-row">' +
+'<span><strong>Blind spot</strong> ' + esc(s.blind_spot || "—") + "</span>" +
+(s._opsAge ? '<span class="ops-age-badge ' + esc(s._opsAge) + '">' + esc(s._opsAgeLabel) + "</span>" : "") +
+"</div>" +
+(s.priority || s.displace_what || s.why_in || s.why_out
+? '<div class="cso-block">' +
+(s.priority ? '<div><strong>Priority</strong>' + esc(s.priority) + "</div>" : "") +
+(s.displace_what ? '<div><strong>Displaces</strong>' + esc(s.displace_what) + "</div>" : "") +
+(s.why_in ? '<div><strong>Why in</strong>' + esc(s.why_in) + "</div>" : "") +
+(s.why_out ? '<div><strong>Why out</strong>' + esc(s.why_out) + "</div>" : "") +
+"</div>"
+: "") +
+(bullets ? '<ul class="bullets">' + bullets + "</ul>" : "") +
+(s.explainer ? '<p class="explainer">' + esc(s.explainer) + "</p>" : "") +
+((s.point || s.motive || s.bottom_line)
+? '<div class="pmb">' +
+'<div class="pmb-cell"><div class="k">Point</div><div class="v">' + esc(s.point) + "</div></div>" +
+'<div class="pmb-cell"><div class="k">Motive</div><div class="v">' + esc(s.motive) + "</div></div>" +
+'<div class="pmb-cell"><div class="k">Bottom line</div><div class="v">' + esc(s.bottom_line) + "</div></div>" +
+"</div>"
+: "") +
+'<div class="angles">' + angles + sources + "</div>" +
+(evidence ? '<div class="ops-line" style="margin-top:0.35rem"><strong style="color:var(--text)">Evidence:</strong> ' + evidence + "</div>" : "") +
+"</article>"
+);
+}).join("");
+}
+function renderPolyangle(stories, polyMeta) {
+const el = document.getElementById("polyangle-board");
+const byAngle = {};
+(stories || []).forEach(function (s) {
+(s.angles || []).forEach(function (a) {
+if (!byAngle[a]) byAngle[a] = [];
+byAngle[a].push(s);
+});
+});
+const keys = Object.keys(byAngle).sort();
+document.getElementById("poly-count").textContent = keys.length + " angles";
+if (!keys.length) {
+el.innerHTML = '<p class="empty">No angles tagged.</p>';
+return;
+}
+const spotlight = (polyMeta && polyMeta.spotlight_angle) || "";
+el.innerHTML = keys.map(function (a) {
+const items = byAngle[a].map(function (s) {
+return "<li><strong>" + esc(s.id) + "</strong> — " + esc(s.headline) + "</li>";
+}).join("");
+const mark = a === spotlight ? " · spotlight" : "";
+return (
+'<div class="angle-group">' +
+'<div class="angle-group-head">' + esc(a) + esc(mark) + "</div>" +
+"<ul>" + items + "</ul>" +
+"</div>"
+);
+}).join("");
+}
+/* REGRESSION GUARD (Truth Bar / CPO):
+While any Active card is Contested (decision_frame Contested OR story.contested),
+NEVER show a blended board confidence number. Null blended_avg / board_confidence_avg.
+Optional facts_avg only — labeled facts-only. Contested legs + self_kill densify here
+without reintroducing any decision-average. */
+function renderConfidence(board) {
+const el = document.getElementById("confidence-panel");
+const cbs = board.confidence_blind_spots || {};
+const frame = cbs.decision_frame || "";
+const anyContestedStory = (board.active_stories || []).some(function (s) { return !!s.contested; });
+const contestedFrame = /contested/i.test(String(frame)) || anyContestedStory;
+const factsAvg = cbs.facts_avg;
+const blended = contestedFrame ? null : cbs.blended_avg;
+// Never use board_confidence_avg as a decision average while Contested
+const legacyAvg = contestedFrame ? null : cbs.board_confidence_avg;
+const spots = cbs.open_blind_spots || [];
+let html = "";
+if (frame) {
+html += '<div class="avg-conf">Decision frame: <strong style="color:' +
+(contestedFrame ? "var(--warn)" : "var(--text)") + '">' + esc(frame) + "</strong></div>";
+if (cbs.decision_frame_note) {
+html += '<div class="ops-line" style="margin-bottom:0.35rem">' + esc(cbs.decision_frame_note) + "</div>";
+}
+}
+// Contested legs + self_kill at glance (no blend)
+(board.active_stories || []).forEach(function (s) {
+if (!s.contested) return;
+const legs = s.contested_legs || [];
+if (legs.length) {
+html += '<div class="conf-legs-glance"><div class="clg-head">Contested legs · ' +
+esc(s.id) + " · never averaged</div>" +
+legs.map(function (leg, i) {
+const lid = leg.id
