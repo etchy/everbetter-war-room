@@ -1,1 +1,41 @@
-<!-- pages-bridge source: index-7.txt -->
+pt filed.",
+"self_kill_attempt": {
+"claim_we_might_be_wrong": "The 'unit economics rewrite defaults' frame overstates decision impact: Flash already wins list price by ~10\u00d7 so the Sep moves are incremental not regime-changing for cost buyers; Fable's 25\u201345% savings are vendor-estimated on one usage mix; Astra Fast 2\u00d7 is optional; and much agentic spend may ride seat licenses / cloud credits / distribution, not raw API list \u2014 so pricing footnotes may be noise vs capability/harness/distribution (Leg B wins by default without Contested theater).",
+"evidence_that_would_retire_it": [
+"Primary share or procurement data showing default agentic production lanes chosen by non-API instruments (seats, credits, exclusive distribution) with list price inert",
+"Primary pricing pages retract or contradict the three-lane numbers",
+"Independent same-harness cost-per-task across Fable/Astra/Flash showing lanes converge within noise so economics cannot displace capability"
+],
+"attempted_at": "2026-09-16T03:02:30-04:00",
+"outcome": "Contested",
+"outcome_note": "Job B falsify upgrade (TBL). Pricing Primaries still corroborate three-lane numbers \u2014 pricing_contradiction kill fails. kill_LegA fails \u2014 no Primary procurement share proving list price inert; OpenAI Enterprise token-based rate card cuts the other way. Upgrade: Specialist token-intensity/cache receipts now on the Contested surface \u2014 DeepSWE same-harness Astra~$6.52/~30k out vs Flash~$2.36/~143k at tied 74%; AA Fable 5.1 ~1.7\u00d7 output tokens vs Fable 5 ($3.76/task despite cache cut); Firecrawl measured Claude-lane cache re-reads (e.g. 1.69M cached for $0.42 vs Fable 5 1.34M/$1.34). Hold Contested: Legs A/B both live; confidence null; never averaged. Gap remains: no independent same-harness cost-per-task jointly including Fable 5.1 + Astra + Flash. EXAMPLE stays retired (example:false). Hunt: data/tbl_job_b_falsify_hunt.json.",
+"evidence_checked_now": {
+"pricing_contradiction": "FAIL_TO_KILL \u2014 Anthropic, OpenAI, Google Primaries still corroborate three-lane numbers (re-verified Job B)",
+"list_price_already_dominated": "PARTIAL \u2014 Flash intro far cheaper; does not retire frontier-lane economics claim",
+"vendor_savings_estimate": "PARTIAL \u2014 AA/Firecrawl weaken High on 25\u201345% savings magnitude; still Contested not kill",
+"same_harness_convergence": "PARTIAL_UPGRADE \u2014 DeepSWE same-harness Astra vs Flash intensity/cost live; Fable 5.1 absent from that panel \u2014 three-lane joint same-harness still ABSENT",
+"non_API_default_share": "FAIL_TO_KILL \u2014 no Primary share proving list price inert; OpenAI token-based Enterprise rate card supports metered API relevance (Leg A)",
+"measured_cache_token_intensity": "UPGRADE \u2014 Firecrawl Claude-lane measured cache volumes; AA Fable output-intensity; DeepSWE Astra/Flash token intensity \u2014 falsify surface upgraded, Contested held"
+},
+"attempted_by": "TBL",
+"schema": "IRRE_v1",
+"prior_attempt_at": "2026-09-16T02:58:30-04:00",
+"upgrade_from": "Job B tbl_job_b_falsify_hunt.json",
+"job_b_recommendation": "upgrade_self_kill"
+},
+"cio_self_kill": "SURVIVES Contested (Job B upgrade)",
+"linked_watch": "watch-w1-01",
+"freshness_cap_note": "COO forge-005: Contested/null confidence \u2192 max Live (Developing); Settled forbidden until leg dies or next_receipt",
+"freshness_capped_at": "2026-09-16T07:03:23+00:00",
+"freshness_capped_from": "Settled",
+"next_receipt": "Independent same-harness cost-per-task jointly including Claude Fable 5.1 + GPT-6 Astra + Gemini 3.8 Flash that retires Leg A or B within noise; OR Primary procurement/share proving default agentic lanes treat API list price as inert (kill Leg A); OR Primary/Specialist capability/harness receipts that retire Leg B's footing so economics can graduate.",
+"ops_defects": [],
+"next_receipt_detail": {
+"required": true,
+"concrete": "Independent same-harness cost-per-task jointly including Claude Fable 5.1 + GPT-6 Astra + Gemini 3.8 Flash that retires Leg A or B within noise; OR Primary procurement/share proving default agentic lanes treat API list price as inert (kill Leg A); OR Primary/Specialist capability/harness receipts that retire Leg B's footing so economics can graduate.",
+"not": "more news / another Fast synthesis / vendor bench screenshots",
+"blocks": "Settled freshness and High graduation until this lands or a leg dies",
+"owner": "Truth Bar Lead",
+"set_at": "2026-09-16T03:04:00-04:00",
+"from_forge": "forge-005",
+"attempts": 
