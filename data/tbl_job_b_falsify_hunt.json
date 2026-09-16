@@ -1,0 +1,108 @@
+{
+  "job": "B",
+  "card_id": "collect-w1-frontier-unit-econ",
+  "searched_at": "2026-09-16T03:02:00-04:00",
+  "pricing_corroboration": "still_holds",
+  "findings": [
+    {
+      "type": "other",
+      "source_class": "Primary",
+      "url": "https://www.anthropic.com/claude-fable-and-mythos-5-1",
+      "claim": "Fable 5.1 cache reads cut 75% to $0.25 per million tokens; input/output unchanged at $10/$50 per MTok; Anthropic estimates ~25% typical and up to ~45% highly agentic savings from August 2026 usage mix.",
+      "supports": "LegA"
+    },
+    {
+      "type": "other",
+      "source_class": "Primary",
+      "url": "https://developers.openai.com/api/docs/pricing",
+      "claim": "gpt-6-astra short-context standard list is $10 input / $1.00 cached / $50 output per MTok; Fast mode table lists $20 / $2.00 / $100 — 2× standard on those meters.",
+      "supports": "LegA"
+    },
+    {
+      "type": "other",
+      "source_class": "Primary",
+      "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/3-8-flash-and-3-8-flash-cyber/",
+      "claim": "Gemini 3.8 Flash ships at intro $0.75/$3.75 per MTok input/output; introductory price expires Dec 31, 2026; from Jan 1, 2027 rates become $1.50/$7.50. Google states the model 'works harder' and may use more tokens.",
+      "supports": "LegA"
+    },
+    {
+      "type": "other",
+      "source_class": "Primary",
+      "url": "https://ai.google.dev/gemini-api/docs/pricing",
+      "claim": "Paid Standard Gemini 3.8 Flash: $0.75 input / $3.75 output through Dec 31, 2026 then $1.50/$7.50; context caching $0.075 through Dec 31, 2026 then $0.15 (plus storage). Pricing page last updated 2026-09-15 UTC.",
+      "supports": "LegA"
+    },
+    {
+      "type": "token_intensity",
+      "source_class": "Specialist",
+      "url": "https://deepswe.datacurve.ai/",
+      "claim": "Independent DeepSWE v1.1 same harness (mini-swe-agent): GPT-6 Astra XHigh and Gemini 3.8 Flash High both 74% pass; published average task cost $6.52 vs $2.36 with ~30k vs ~143k output tokens per task (Aeon Model Economics Lab 2026-09-04 compilation of the same leaderboard). Claude Fable 5.1 is not present as a DeepSWE point in that compilation (leaderboard HTML shows claude-fable-5, not 5.1).",
+      "supports": "upgrade_Contested"
+    },
+    {
+      "type": "token_intensity",
+      "source_class": "Specialist",
+      "url": "https://artificialanalysis.ai/articles/claude-fable-5-1",
+      "claim": "Artificial Analysis: Fable 5.1 (max) costs $3.76 per Intelligence Index task vs Fable 5 (max) $3.14 (~20% higher) because ~1.7× output tokens; cache-read cut saves ~$1.40/task and is concentrated where majority of input tokens are cache reads. Effort span 13.1M–143.7M output tokens (low→max) across the Index.",
+      "supports": "upgrade_Contested"
+    },
+    {
+      "type": "cache_hit",
+      "source_class": "Specialist",
+      "url": "https://www.firecrawl.dev/blog/is-fable-5-1-cheaper-than-fable-5",
+      "claim": "Firecrawl measured 57 API-billed runs: on sandboxed agentic builds one Fable 5.1 run re-read 1.69M cached tokens for $0.42 vs a Fable 5 run re-reading 1.34M for $1.34; mean-of-2 builds show ~2.10M–2.13M cache re-reads with Fable 5.1 bill ~$7.00 vs Fable 5 ~$6.88 (output tokens still largest line). Savings on those builds 15–30% of bill, below Anthropic's 25–45% headline because cache writes stay $20/MTok.",
+      "supports": "upgrade_Contested"
+    },
+    {
+      "type": "cache_hit",
+      "source_class": "Fast",
+      "url": "https://superpowerdaily.com/posts/fable-cache-becomes-cheaper-after-24-reuses-when-gemini-misses",
+      "claim": "Superpower Daily evidence-matrix (v2 JSON dataset): if every Fable reuse hits and every Gemini implicit reuse misses, Fable five-minute cache becomes cheaper at 24 reuses (one-hour at 39). If Gemini caches ≥74.074% of reuse tokens, Fable cannot undercut on prefix economics under a single successful write. Derived from Primary rate cards; not a measured production hit-rate panel across vendors.",
+      "supports": "upgrade_Contested"
+    },
+    {
+      "type": "token_intensity",
+      "source_class": "Specialist",
+      "url": "https://www.beri.net/article/real-swe-private-codebase-benchmark-cost-per-resolved-task-failure-mode-review-gate",
+      "claim": "Real-SWE (Specific Labs, ~10 tasks × 8 runs): native-harness cost-per-resolved-task ~$17.94 Fable 5.1/Claude Code, ~$13.82 Astra/Codex CLI, ~$8.01 Gemini 3.8 Flash/Gemini CLI. Explicitly NOT same-harness; authors do not disclose whether prompt caching entered cost estimates. Useful as production-shaped economics, not as the three-lane same-harness receipt.",
+      "supports": "inconclusive"
+    },
+    {
+      "type": "list_price_inert_share",
+      "source_class": "Fast",
+      "url": "https://vendorbenchmark.com/guides/enterprise-genai-cost-benchmark-2026",
+      "claim": "VendorBenchmark 2026 GenAI cost benchmark (cohort medians): copilot/seat licenses 38–52% of GenAI budget vs API consumption 22–38%. Hybrid seat+meter structures are common; does not prove Primary procurement that default agentic production lanes treat API list price as inert.",
+      "supports": "inconclusive"
+    },
+    {
+      "type": "list_price_inert_share",
+      "source_class": "Primary",
+      "url": "https://help.openai.com/en/articles/20001415-chatgpt-rate-card-enterprise-token-based-pricing",
+      "claim": "OpenAI Help Center: new ChatGPT Enterprise agreements may use token-based USD billing for Work/Codex usage (input/cached/output), not seats-only; credit-based plans remain for other cohorts. Cuts against a clean 'list price inert / seats only' kill of Leg A for agentic production.",
+      "supports": "LegA"
+    },
+    {
+      "type": "other",
+      "source_class": "Fast",
+      "url": "https://www.gradually.ai/en/llm-comparison/claude-fable-5.1-vs-gemini-3.8-flash/",
+      "claim": "Gradually.ai Fable 5.1 vs Gemini 3.8 Flash page verifies list prices ($10/$50 vs $0.75/$3.75; cache read $0.25 vs $0.075) as of 2026-09-02 but reports zero directly matched shared benchmark series and incomplete same-prompt test coverage (Gemini unavailable on one visual test).",
+      "supports": "inconclusive"
+    },
+    {
+      "type": "other",
+      "source_class": "Fast",
+      "url": "https://esso.dev/blog-posts/three-frontier-models-in-72-hours-what-changed-in-september-2026",
+      "claim": "Esso.dev Sep 2026 synthesis: Fable cache-read cut changes agent bills; Gemini same token price but ~40% higher real cost/task per Artificial Analysis vs 3.7; Astra vendor harness claims contested. Frames Leg A vs Leg B tension without new Primary share or three-lane same-harness measurements.",
+      "supports": "inconclusive"
+    }
+  ],
+  "recommendation": "upgrade_self_kill",
+  "recommendation_detail": "Primary pricing pages still corroborate all three board numbers (Fable cache $0.25/M, Astra Fast 2×, Gemini intro cliff→double), so pricing_contradiction kill fails. Path-2 kill_LegA also fails: no Primary procurement share shows default agentic lanes chosen by seats/credits with list price inert, and OpenAI's token-based Enterprise rate card cuts the other way. Path-1 succeeds enough to upgrade the Contested falsify surface: Specialist DeepSWE same-harness token-intensity/cost (Astra ~30k/$6.52 vs Flash ~143k/$2.36 at tied 74%), Specialist AA Fable output-intensity (~1.7× vs Fable 5; $3.76/task despite cache cut), and Specialist Firecrawl measured cache re-read volumes on agentic builds. Hold is no longer justified as 'no intensity evidence,' but three-lane same-harness cost-per-task including Fable 5.1 remains an open gap.",
+  "gaps": [
+    "No independent same-harness cost-per-task that jointly includes Claude Fable 5.1, GPT-6 Astra, and Gemini 3.8 Flash (DeepSWE has Astra+Flash; Fable 5.1 appears on AA Coding Agent Index / other suites, not the DeepSWE mini-swe-agent panel used for that pair).",
+    "No Primary enterprise procurement/share series proving default agentic production lanes are seat/credit-selected with API list price inert.",
+    "No measured cross-vendor production cache-hit-rate panel for the three lanes (Superpower Daily crossover is rate-card math conditional on assumed Gemini hit fractions; Firecrawl/wmedia measure Claude-side cache volumes only).",
+    "Real-SWE cost columns are native-harness and do not disclose caching in cost estimation — cannot close the same-harness blind spot.",
+    "WebFetch timed out on Superpower Daily story HTML; claims recovered via curl + research JSON API (reachable)."
+  ]
+}
