@@ -1,1 +1,121 @@
-<!-- pages-bridge source: ledger-4.txt -->
+se);
+html += gtDeliverablesBlock(gt.deliverables);
+html += gtListBlock("Results", gt.results, "— none —", "", true);
+html += gtListBlock("IRRE", irre, "— none —", "pressure irre", false);
+html += gtListBlock("TLC", tlc, "— none —", "pressure tlc", false);
+html += "</div>";
+return html;
+}
+function renderDirective(raw) {
+var d = normalizeDirective(raw);
+var openItems = d.open_items || [];
+var openHtml = openItems.length
+? bullets(openItems)
+: '<p class="sealed">— none open —</p>';
+var openN = openItems.length;
+var openChip = openN
+? '<span class="chip open-n">Open · ' + openN + "</span>"
+: '<span class="chip open-sealed">Open · sealed</span>';
+return '<article class="directive" role="listitem" data-id="' + esc(d.id) + '">' +
+'<div class="orbit" tabindex="0" role="button" aria-expanded="false" aria-controls="depth-' + esc(d.id) + '">' +
+'<div class="orbit-top">' +
+'<span class="did">' + esc(d.id) + "</span>" +
+'<span class="dtitle">' + esc(d.title) + "</span>" +
+'<div class="chips">' +
+'<span class="' + statusClass(d.status) + '">' + esc(d.status) + "</span>" +
+'<span class="' + dnaClass(d.dna_tag) + '">DNA · ' + esc(dnaTag(d.dna_tag)) + "</span>" +
+openChip +
+"</div>" +
+"</div>" +
+'<p class="one-liner" title="' + esc(d.one_liner || "") + '">' + esc(d.one_liner) + "</p>" +
+(function () {
+var fp = (d.flight_path || []).length;
+var gt = d.ground_truth || {};
+var deliv = (gt.deliverables || []).length;
+var irre = (gt.irre_notes || []).filter(Boolean).length;
+var tlc = (gt.tlc_notes || []).filter(Boolean).length;
+var resultsN = (gt.results || []).filter(Boolean).length;
+return '<div class="telescope">' +
+"<span><strong>Orbit</strong>glance</span>" +
+"<span><strong>Flight</strong>" + fp + " steps</span>" +
+"<span><strong>Ground</strong>" + deliv + " deliv · " + resultsN + " results</span>" +
+(irre || tlc
+? '<span class="pressure"><strong>Pressure</strong>' +
+(irre ? "IRRE×" + irre : "") +
+(irre && tlc ? " · " : "") +
+(tlc ? "TLC×" + tlc : "") + "</span>"
+: "<span><strong>Pressure</strong>none</span>") +
+"</div>";
+})() +
+'<div class="orbit-cols">' +
+'<div class="orbit-block"><h4>Actions done</h4>' + bullets(d.actions_done, "—") + "</div>" +
+'<div class="orbit-block open-items"><h4>Open items</h4>' + openHtml + "</div>" +
+"</div>" +
+'<div class="expand-hint"><span class="arrow">▶</span> Orbit → Flight Path → Ground Truth</div>' +
+"</div>" +
+'<div class="depths" id="depth-' + esc(d.id) + '">' +
+'<div class="depth">' +
+'<div class="depth-label">Flight Path <span class="zoom">zoom 2 · action arc</span></div>' +
+renderFlight(d.flight_path) +
+"</div>" +
+'<div class="depth">' +
+'<div class="depth-label">Ground Truth <span class="zoom">zoom 3 · plan · thought · deliverables · results · irre · tlc</span></div>' +
+renderGround(d.ground_truth) +
+"</div>" +
+"</div>" +
+"</article>";
+}
+function bindExpand(root) {
+root.querySelectorAll(".directive .orbit").forEach(function (orbit) {
+function toggle() {
+var card = orbit.closest(".directive");
+var open = card.classList.toggle("open");
+orbit.setAttribute("aria-expanded", open ? "true" : "false");
+}
+orbit.addEventListener("click", toggle);
+orbit.addEventListener("keydown", function (e) {
+if (e.key === "Enter" || e.key === " ") {
+e.preventDefault();
+toggle();
+}
+});
+});
+root.querySelectorAll("[data-gt-more]").forEach(function (btn) {
+btn.addEventListener("click", function (e) {
+e.stopPropagation();
+var block = btn.closest(".gt-block");
+if (!block) return;
+var on = block.classList.toggle("open");
+btn.textContent = on ? "Collapse" : "Expand";
+});
+});
+}
+function paint(data) {
+var meta = data.meta || {};
+document.getElementById("data-source").textContent = "LIVE";
+document.getElementById("data-source").classList.add("live");
+document.getElementById("updated-at").textContent = meta.updated_at
+? "updated " + meta.updated_at
+: "";
+document.getElementById("ledger-version").textContent = meta.version
+? "v" + meta.version
+: "";
+if (meta.dna) document.getElementById("dna-motto").textContent = meta.dna;
+var list = data.directives || [];
+var el = document.getElementById("ledger");
+if (!list.length) {
+el.innerHTML = '<p class="empty-state">No directives yet. Edit data/directives.json.</p>';
+return;
+}
+el.innerHTML = list.map(renderDirective).join("");
+bindExpand(el);
+}
+function fail(msg) {
+var e = document.getElementById("err");
+e.hidden = false;
+e.textContent = msg;
+document.getElementById("data-source").textContent = "ERROR";
+}
+fetch("data/directives.json?_=" + Date.now())
+.then(function (r) {
+if (!r.ok) thro
