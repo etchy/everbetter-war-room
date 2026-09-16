@@ -1,1 +1,102 @@
-<!-- pages-bridge source: index-13.txt -->
+"";
+return (
+'<div class="self-kill">' +
+'<div class="sk-head">' +
+"<span>IRRE self-kill</span>" +
+'<span class="sk-outcome">' + esc(sk.outcome || "—") + "</span>" +
+(sk.attempted_at ? "<span>" + esc(sk.attempted_at) + "</span>" : "") +
+(sk.attempted_by ? "<span>by " + esc(sk.attempted_by) + "</span>" : "") +
+"</div>" +
+'<div class="sk-grid">' +
+'<div class="sk-cell"><strong>Claim we might be wrong</strong>' +
+'<div class="sk-body" title="' + esc(claimWrong) + '">' + esc(claimWrong) + "</div></div>" +
+'<div class="sk-cell"><strong>Evidence that would retire it</strong>' +
+(retire ? "<ul>" + retire + "</ul>" : "—") + "</div>" +
+'<div class="sk-cell"><strong>Outcome</strong>' + esc(sk.outcome || "—") +
+(note ? '<div class="sk-note" title="' + esc(note) + '">' + esc(note) + "</div>" : "") +
+"</div>" +
+"</div>" +
+"</div>"
+);
+})();
+const nrBlock = (function () {
+const nr = s.next_receipt;
+const detail = (s.next_receipt_detail && typeof s.next_receipt_detail === "object")
+? s.next_receipt_detail : null;
+const hasNr = !(nr == null || nr === "") || !!detail;
+const missing = contested && !hasNr;
+if (!contested && !hasNr) return "";
+if (missing) {
+return '<div class="next-receipt"><div class="nr-head">next_receipt · forge-005</div>' +
+'<div class="nr-concrete" style="color:var(--danger)">MISSING — Contested cards require a concrete next receipt.</div></div>';
+}
+// Prefer detail fields when present; accept string OR object on next_receipt
+const concrete = (detail && detail.concrete)
+? detail.concrete
+: ((typeof nr === "string") ? nr : ((nr && nr.concrete) || ""));
+const owner = (detail && detail.owner)
+|| ((typeof nr === "object" && nr && nr.owner) ? nr.owner : "")
+|| "";
+const required = (detail && detail.required)
+|| ((typeof nr === "object" && nr && nr.required))
+|| typeof nr === "string"
+|| !!concrete;
+const notVal = (detail && detail.not)
+|| ((typeof nr === "object" && nr && nr.not) ? nr.not : "")
+|| "";
+const blocks = (detail && detail.blocks)
+|| ((typeof nr === "object" && nr && nr.blocks) ? nr.blocks : "")
+|| "";
+const nrStatus = (detail && detail.status) ? String(detail.status) : "";
+return (
+'<div class="next-receipt">' +
+'<div class="nr-head">' +
+"<span>next_receipt</span>" +
+(owner ? "<span>" + esc(owner) + "</span>" : "") +
+(required ? "<span>required</span>" : "") +
+(nrStatus ? '<span class="nr-status-' + esc(nrStatus.toLowerCase()) + '">' + esc(nrStatus) + "</span>" : "") +
+"<span>forge-005</span>" +
+"</div>" +
+'<div class="nr-concrete" title="' + esc(concrete) + '">' + esc(concrete) + "</div>" +
+(notVal ? '<div class="nr-meta" title="' + esc(notVal) + '"><strong>Not:</strong> ' + esc(notVal) + "</div>" : "") +
+(blocks ? '<div class="nr-meta" title="' + esc(blocks) + '"><strong>Blocks:</strong> ' + esc(blocks) + "</div>" : "") +
+"</div>"
+);
+})();
+const freshBadge = (function () {
+const fb = s.freshness_bucket || "—";
+const settledWhileContested = contested && String(fb).toLowerCase() === "settled";
+const liveCap = contested && /^(live|breaking|developing)$/i.test(String(fb));
+let cls = "badge";
+if (settledWhileContested) cls += " forge-violation";
+else if (liveCap) cls += " live-cap";
+let label = fb;
+if (settledWhileContested) label = fb + " · forge-005 VIOLATION";
+else if (contested && /^live$/i.test(String(fb))) label = fb + " · CAP";
+else if (liveCap) label = fb + " · contested max";
+return '<span class="' + cls + '">' + esc(label) + "</span>";
+})();
+// Glance breath: Legs → next_receipt → self_kill (signal before depth)
+const contestedGlance = (contested && (legs || skBlock || nrBlock))
+? '<div class="contested-glance">' +
+'<div class="cg-head"><span>Contested · Leg A vs B</span>' +
+'<span class="cg-never">never averaged</span></div>' +
+(legs ? '<div class="contested-legs">' + legs + "</div>" : "") +
+nrBlock +
+skBlock +
+"</div>"
+: (skBlock + nrBlock);
+const evidence = (s.evidence_links || []).map(function (u) {
+return '<a href="' + esc(u) + '" target="_blank" rel="noopener">link</a>';
+}).join(" · ");
+return (
+'<article class="story' + (s.example ? " example" : "") + (contested ? " contested" : "") + '">' +
+'<div class="story-top">' +
+(s.example || s.label === "EXAMPLE DATA"
+? '<span class="badge example">EXAMPLE DATA</span>'
+: "") +
+(contested ? '<span class="badge contested">Contested</span>' : "") +
+(!receipts ? '<span class="no-receipts">NO RECEIPTS</span>' : "") +
+'<span class="badge status-' + esc(s.status || "active") + '">' + esc(s.status || "active") + "</span>" +
+freshBadge +
+'<span class="badge">' +
