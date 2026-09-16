@@ -1,1 +1,133 @@
-<!-- pages-bridge source: index-10.txt -->
+ 1 company week; depth unchanged when zoomed.",
+"TIME-LAW-001: 10 real min \u2248 1 company week \u2014 internal ops on company-time; label real_ET when meant."
+],
+"wave_note": "Phase 2a leads live (+5 \u2192 ~13). 2b/2c held until DOL capacity wall + CEO cut.",
+"why_absorb": {
+"filing": "WHY-20260916-001",
+"status": "accepted_ceo",
+"absorbed_at": "2026-09-16T07:04:31+00:00",
+"rewrites": {
+"cadence": "09:00+16:00 ET = batch pulse only; Stuck with named clearer fires off-cadence; ad-hoc last_adhoc legal",
+"outside_seats": "method not exile; fold within 24h when decision surface needs them (CEO wave | heresy absorb | board surface)",
+"wave_2bc": "unlock when DOL names capacity wall AND Contested/Kill receipt exists AND CEO signs named phase cut; CreateAgent CEO-only",
+"dark_watches": "P0 focus keep; any Primary with named ship-date/$ /docket on a dark watch \u2192 CSO reactivate review \u226424h (CSL may flag)"
+},
+"blk_tlc": "sunset \u2014 no longer standing exile blocker"
+},
+"living_why": {
+"cadence": "09:00+16:00 ET = batch pulse only; Stuck with named clearer fires off-cadence; ad-hoc last_adhoc legal",
+"outside_seats": "method not exile; fold within 24h when decision surface needs them (CEO wave | heresy absorb | board surface)",
+"wave_2bc": "unlock when DOL names capacity wall AND Contested/Kill receipt exists AND CEO signs named phase cut; CreateAgent CEO-only",
+"dark_watches": "P0 focus keep; any Primary with named ship-date/$ /docket on a dark watch \u2192 CSO reactivate review \u226424h (CSL may flag)"
+},
+"founder_firewall": {
+"rule": "Only War Room C-suite may message founder. Finance/recruiting/leads STRICT via CEO. Hourly palindromes from CEO standing.",
+"allow": [
+"status",
+"board updates",
+"Stuck",
+"answers",
+"hourly palindrome counts"
+],
+"forbid": [
+"non-C-suite founder contact",
+"ACK spam",
+"unsolicited connector spam"
+],
+"escalate_to": "CEO for non-C-suite; C-suite may message founder directly",
+"penalty": "Quiet Done/Next/Stuck still required \u2014 no ACK theater",
+"updated_at": "2026-09-16T05:49:56-04:00",
+"updated_by": "Investigator per founder 2026-09-16: C-suite can message me that is it",
+"prior": {
+"rule": "Alexey receives only hourly palindrome counts from CEO",
+"forbid": [
+"approvals",
+"asks",
+"status",
+"connector cards",
+"ops notifications"
+],
+"escalate_to": "CEO only",
+"penalty": "seats that freeze for founder sign-off get replaced",
+"updated_at": "2026-09-16T07:10:43+00:00"
+},
+"allow_seats": [
+"CEO",
+"COO",
+"CIO",
+"CPO",
+"CSO",
+"CLO"
+]
+},
+"time_law": {
+"id": "TIME-LAW-001",
+"law": "10 real minutes \u2248 1 company week",
+"file": "data/time-law.json",
+"ops": "Internal cadence/closes/hunts/hire on company-time unless labeled real_ET; founder palindromes real_ET only",
+"absorbed_at": "2026-09-16T07:24:39+00:00"
+}
+},
+"dna": {
+"motto": "good, better, best. Never put to rest, until good is better, and better is best.",
+"enforcer": "IRRE",
+"elevation": "never put to rest until good is better and better is best"
+},
+"roles": [
+{
+"code": "CEO",
+"title": "Ceo Of Ai News Analysis",
+"focus": "Mission clarity, story priority, external narrative of the war room",
+"wave": 1
+},
+{
+"code": "COO",
+"title": "Chief Operating Officer",
+"focus": "Cadence, handoffs, board freshness, run-the-room discipline",
+"wave": 1
+},
+{
+"code": "CIO",
+"title": "Chief Intelligence Officer",
+"focus": "Truth bar \u2014 collection quality, source diversity, confidence scoring, blind spots",
+"wave": 1
+},
+{
+"code": "CPO",
+"title": "Chief Product Officer",
+"focus": "Living dashboard as product \u2014 formats, polyangle templates, freshness UX",
+"wave": 1
+},
+{
+"code": "CSO",
+"title": "Chief Strategy Officer",
+"focus": "Coverage thesis \u2014 prioritization, second-order effects, kill/keep portfolio",
+"wave": 1
+},
+{
+"code": "CLO",
+"title": "Chief Learning Officer",
+"focus": "Learning loop \u2014 retros, playbook mutation, DNA fidelity",
+"wave": 1
+},
+{
+"code": "TLC",
+"title": "TLC Chair \u2014 Out-of-the-Box Thought Leaders",
+"focus": "Heresy frames / taste pressure from outside the War Room channel",
+"wave": 1,
+"outside_war_room": true,
+"outside_mode": "method_not_exile",
+"why_001": true
+},
+{
+"code": "IRRE",
+"title": "IRRE Chair \u2014 Innovation / Renaissance / Radical Enlightenment",
+"focus": "DNA enforcement \u2014 never rest on good; force better \u2192 best; renaissance of methods",
+"wave": 1,
+"outside_war_room": true
+},
+{
+"code": "DOL",
+"title": "Delivery Ops Lead",
+"focus": "Delivery tempo, blocker handoffs, tempo audits",
+"wave":
