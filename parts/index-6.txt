@@ -1,1 +1,95 @@
-<!-- pages-bridge source: index-6.txt -->
+nverified on DeepSWE board."
+],
+"angles": [
+"Capability",
+"Product/shipping",
+"Capital"
+],
+"source_classes": [
+"Primary",
+"Fast",
+"Specialist"
+],
+"evidence_links": [
+"https://www.anthropic.com/claude-fable-and-mythos-5-1",
+"https://developers.openai.com/api/docs/pricing",
+"https://blog.google/innovation-and-ai/models-and-research/gemini-models/3-8-flash-and-3-8-flash-cyber/",
+"https://ai.google.dev/gemini-api/docs/pricing",
+"https://www.gradually.ai/en/llm-comparison/claude-fable-5.1-vs-gemini-3.8-flash/",
+"https://esso.dev/blog-posts/three-frontier-models-in-72-hours-what-changed-in-september-2026",
+"https://superpowerdaily.com/posts/fable-cache-becomes-cheaper-after-24-reuses-when-gemini-misses",
+"https://deepswe.datacurve.ai/",
+"https://artificialanalysis.ai/articles/claude-fable-5-1",
+"https://www.firecrawl.dev/blog/is-fable-5-1-cheaper-than-fable-5",
+"https://openai.com/index/gpt-6-astra/",
+"https://artificialanalysis.ai/articles/benchmarking-gpt-6-astra/",
+"https://artificialanalysis.ai/articles/artificial-analysis-intelligence-index-v4-3",
+"https://artificialanalysis.ai/agents/coding-agents",
+"https://www.endorlabs.com/learn/gpt-6-astra-on-codex---the-biggest-codex-leap-to-date"
+],
+"priority": "P0",
+"displace_what": "Model-card / benchmark screenshot cycles that ignore list price, cache economics, and published intro cliffs",
+"why_in": "Named decision surface (default agentic spend lane) + second-order path (cost-per-task reshapes what ships) inside P0",
+"why_out": "Would kill if primary pricing pages failed to corroborate the three-lane economics or story collapsed to vendor benches only \u2014 did not happen",
+"contested": true,
+"contested_legs": [
+{
+"id": "A",
+"claim": "Economics dominate: cache cut / Fast surcharge / intro cliff determine the default agentic spend lane this quarter.",
+"source_classes": [
+"Primary",
+"Specialist"
+],
+"evidence_links": [
+"https://www.anthropic.com/claude-fable-and-mythos-5-1",
+"https://developers.openai.com/api/docs/pricing",
+"https://ai.google.dev/gemini-api/docs/pricing",
+"https://superpowerdaily.com/posts/fable-cache-becomes-cheaper-after-24-reuses-when-gemini-misses",
+"https://deepswe.datacurve.ai/",
+"https://artificialanalysis.ai/articles/claude-fable-5-1",
+"https://www.firecrawl.dev/blog/is-fable-5-1-cheaper-than-fable-5"
+]
+},
+{
+"id": "B",
+"claim": "Capability/harness claims dominate and pricing is noise \u2014 pick the lane that wins long-horizon coding / agent evals even at higher list price.",
+"source_classes": [
+"Primary",
+"Fast",
+"Specialist"
+],
+"evidence_links": [
+"https://www.anthropic.com/claude-fable-and-mythos-5-1",
+"https://blog.google/innovation-and-ai/models-and-research/gemini-models/3-8-flash-and-3-8-flash-cyber/",
+"https://esso.dev/blog-posts/three-frontier-models-in-72-hours-what-changed-in-september-2026",
+"https://openai.com/index/gpt-6-astra/",
+"https://artificialanalysis.ai/articles/benchmarking-gpt-6-astra/",
+"https://artificialanalysis.ai/articles/artificial-analysis-intelligence-index-v4-3",
+"https://artificialanalysis.ai/articles/claude-fable-5-1",
+"https://artificialanalysis.ai/agents/coding-agents",
+"https://deepswe.datacurve.ai/",
+"https://www.endorlabs.com/learn/gpt-6-astra-on-codex---the-biggest-codex-leap-to-date"
+],
+"receipt_quality": "Primary+Specialist",
+"receipt_upgraded_at": "2026-09-16T03:05:00-04:00",
+"receipt_note": "TBL Leg B attach: OpenAI Primary Astra coding table + AA/DeepSWE/Endor Specialist harness/capability. Does NOT retire Leg B (mixed ranks \u2014 Astra leads some suites, Fable+Claude Code Endor ahead, DeepSWE Astra\u2248Flash). High still withheld pending CIO pressure-test. Fast esso.dev remains non-qualifying alone."
+}
+],
+"cio_pressure_test": {
+"tested_at": "2026-09-16T02:56:00-04:00",
+"kill_rule": "pass",
+"price_facts": "High \u2014 three independent Primary pricing/launch pages corroborate CSO draft numbers",
+"decision_frame": "Contested \u2014 Legs A/B both live; never averaged",
+"high_withheld_reason": "Default lane choice is not settled by receipts; only the pricing facts are",
+"self_kill_at": "2026-09-16T03:02:30-04:00",
+"self_kill_result": "SURVIVES_Contested_JobB_upgrade",
+"irre_stall": "SURVIVES",
+"tbl_job_b": "upgrade_self_kill filed",
+"forge_005": "shipped",
+"freshness_capped": "Live"
+},
+"priority_final": true,
+"priority_final_at": "2026-09-16T02:56:25-04:00",
+"priority_final_by": "CSO",
+"graduation": "Contested",
+"cso_note": "IRRE: sole week-one assassination target. priority_final Contested. self_kill_attem
