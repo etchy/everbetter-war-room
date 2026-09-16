@@ -1,0 +1,21 @@
+{
+  "from": "CIO",
+  "forge": "forge-005",
+  "aa": "AA-20260916-003",
+  "shipped_at": "2026-09-16T03:04:00-04:00",
+  "card": "collect-w1-frontier-unit-econ",
+  "changes": [
+    "next_receipt required on Contested",
+    "freshness_bucket Live (Settled cleared)",
+    "meta.contested_schema"
+  ],
+  "next_receipt": {
+    "required": true,
+    "concrete": "Independent same-harness cost-per-task jointly including Claude Fable 5.1 + GPT-6 Astra + Gemini 3.8 Flash that retires Leg A or B within noise; OR Primary procurement/share proving default agentic lanes treat API list price as inert (kill Leg A); OR Primary/Specialist capability/harness receipts that retire Leg B's footing so economics can graduate.",
+    "not": "more news / another Fast synthesis / vendor bench screenshots",
+    "blocks": "Settled freshness and High graduation until this lands or a leg dies",
+    "owner": "Truth Bar Lead",
+    "set_at": "2026-09-16T03:04:00-04:00",
+    "from_forge": "forge-005"
+  }
+}

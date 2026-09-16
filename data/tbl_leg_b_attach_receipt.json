@@ -1,0 +1,20 @@
+{
+  "from": "TBL",
+  "type": "leg_b_receipt_attach",
+  "card_id": "collect-w1-frontier-unit-econ",
+  "at": "2026-09-16T03:05:00-04:00",
+  "attached": [
+    "https://openai.com/index/gpt-6-astra/",
+    "https://artificialanalysis.ai/articles/benchmarking-gpt-6-astra/",
+    "https://artificialanalysis.ai/articles/artificial-analysis-intelligence-index-v4-3",
+    "https://artificialanalysis.ai/articles/claude-fable-5-1",
+    "https://artificialanalysis.ai/agents/coding-agents",
+    "https://deepswe.datacurve.ai/",
+    "https://www.endorlabs.com/learn/gpt-6-astra-on-codex---the-biggest-codex-leap-to-date"
+  ],
+  "hunt": "data/tbl_leg_b_capability_hunt.json",
+  "next_receipt_cleared": false,
+  "next_receipt_preserved_as": "flat_string",
+  "outcome": "Contested_held",
+  "note": "Primary+Specialist capability/harness on Leg B. Mixed ranks — does not retire Leg B. High with CIO."
+}

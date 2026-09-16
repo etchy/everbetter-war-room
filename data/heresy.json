@@ -1,0 +1,27 @@
+{
+  "meta": {
+    "owner": "TLC",
+    "version": "0.1.0",
+    "filed_at": "2026-09-16T02:54:30-04:00",
+    "against": "CSO coverage thesis v0.1.0",
+    "source": "/workspace/everbetter/war-room/data/coverage.json",
+    "status": "filed",
+    "note": "One filing. Frame 3 only. No second heresy until CEO asks."
+  },
+  "filing": {
+    "frame": "3 — Thesis assassination",
+    "orthodoxy_it_kills": "More angles / more coverage = better intelligence — instantiated as three simultaneous week-1 watches (watch-w1-01..03), each with angles_hint arrays, before any watch has a recorded self-kill attempt.",
+    "seat_it_threatens": "CSO coverage thesis (portfolio-as-strategy) + CIO volume temptation (feed all three) + CEO urge to staff Wave 2 (20–30) before a validated falsify bar",
+    "kill_if_wrong": "If by end of week 1 none of watch-w1-01/02/03 has been forced Contested or Killed by our own assassination attempt (named reason the watch is wrong); OR competitor-equivalent frames ship while we only add angles; OR Wave 2 headcount grows while these three lack falsify receipts."
+  },
+  "demand": {
+    "this_week": "Collapse to ONE assassination target. Recommended: P0 watch-w1-01 (capability/economics). Hold w1-02 and w1-03 dark until P0 dies or graduates with a self-kill log.",
+    "add_to_each_watch": "self_kill_attempt: { claim_we_might_be_wrong, evidence_that_would_retire_it, attempted_at }",
+    "rationale": "CSO kill_rule already filters cards. Frame 3 attacks the portfolio itself: three live unfalsified theses is coverage theater dressed as strategy. Speed-to-falsify beats scoop and beats angle count."
+  },
+  "targets_named": {
+    "orthodoxy": "more angles / more coverage = better intelligence",
+    "watches": ["watch-w1-01", "watch-w1-02", "watch-w1-03"],
+    "soft_spot": "angles_hint + parallel Active watches + graduation gated on CIO receipts instead of self-assassination first"
+  }
+}

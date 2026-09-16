@@ -1,0 +1,39 @@
+{
+  "version": "0.2.0-live-bucket",
+  "note": "Dual clock: CIO narrative buckets + ops aging thresholds. Stale is a visible failure.",
+  "ops_aging": {
+    "fresh_hours": 2,
+    "aging_hours": 8,
+    "labels": {
+      "fresh": "< 2h",
+      "aging": "2–8h",
+      "stale": "> 8h (loud visual failure — red/amber border + STALE badge)"
+    }
+  },
+  "cio_buckets": {
+    "Breaking": "< 2h",
+    "Developing": "2–24h",
+    "Settled": "> 24h",
+    "Stale": "ops failure / past useful cadence — treat as loud failure",
+    "Live": "Contested decision max — not Settled; awaiting next_receipt or leg death"
+  },
+  "alignment": "Breaking maps to ops fresh. Developing spans ops aging through mid-day. Settled is older than 24h but may still be tracked. Stale (CIO or ops >8h without refresh) triggers STALE badge + border.",
+  "contested_cap": {
+    "rule": "While Contested/null: freshness_bucket may be Breaking, Developing, or Live; preferred=Live; Settled forbidden",
+    "allowed_while_contested": [
+      "Breaking",
+      "Developing",
+      "Live"
+    ],
+    "preferred_while_contested": "Live",
+    "forbidden_while_contested": [
+      "Settled"
+    ],
+    "do_not_demote_live_to_developing": true,
+    "enforcer": "COO",
+    "next_receipt_owner": "CIO",
+    "forge": "forge-005",
+    "updated_at": "2026-09-16T07:04:52+00:00"
+  },
+  "updated_at": "2026-09-16T03:04:00-04:00"
+}
