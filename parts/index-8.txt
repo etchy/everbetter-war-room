@@ -1,1 +1,109 @@
-<!-- pages-bridge source: index-8.txt -->
+[
+{
+"id": "JobB",
+"at": "2026-09-16T03:02:30-04:00",
+"by": "TBL",
+"result": "partial_upgrade_not_landed",
+"detail": "Specialist DeepSWE/AA/Firecrawl intensity+cache upgraded Contested falsify surface; three-lane same-harness incl Fable 5.1 still ABSENT; kill_LegA FAIL; pricing still holds.",
+"artifacts": [
+"data/tbl_job_b_falsify_hunt.json",
+"data/tbl_job_b_self_kill_upgrade.json"
+],
+"matches_concrete": false
+}
+],
+"status": "open",
+"last_progress_at": "2026-09-16T03:04:30-04:00",
+"progress_note": "Job B filed as attempt \u2014 does NOT clear concrete. Still need: three-lane same-harness incl Fable 5.1 OR Primary list-price-inert share OR Primary/Specialist capability/harness that retires Leg B footing. Leg B capability hunt in flight.",
+"reasserted_at": "2026-09-16T03:05:15-04:00",
+"reasserted_by": "CIO"
+},
+"leg_b_receipt_attach": {
+"at": "2026-09-16T03:05:00-04:00",
+"by": "TBL",
+"hunt": "data/tbl_leg_b_capability_hunt.json",
+"attached_urls": [
+"https://openai.com/index/gpt-6-astra/",
+"https://artificialanalysis.ai/articles/benchmarking-gpt-6-astra/",
+"https://artificialanalysis.ai/articles/artificial-analysis-intelligence-index-v4-3",
+"https://artificialanalysis.ai/articles/claude-fable-5-1",
+"https://artificialanalysis.ai/agents/coding-agents",
+"https://deepswe.datacurve.ai/",
+"https://www.endorlabs.com/learn/gpt-6-astra-on-codex---the-biggest-codex-leap-to-date"
+],
+"clears_next_receipt": false,
+"reason": "Receipts strengthen Leg B footing (mixed capability ranks); concrete requires retiring Leg B OR three-lane same-harness OR kill_LegA \u2014 none landed."
+},
+"next_receipt_hunt": {
+"at": "2026-09-16T03:07:30-04:00",
+"by": "TBL",
+"recommendation": "hold_open",
+"clear_path": null,
+"path_results": {
+"1_three_lane_same_harness": "partial",
+"2_kill_LegA_share": "absent",
+"3_retire_LegB": "absent"
+},
+"artifact": "data/tbl_next_receipt_clear_hunt.json",
+"named_gap": "No independent same-harness panel jointly including Fable 5.1 + Astra + Flash with cost-per-task; Primary list-price-inert share absent; Leg B still not retired (mixed ranks). Nearest fill: DeepSWE Fable 5.1 row or Devin Fusion CLI + Flash same-harness."
+}
+}
+],
+"polyangle_board": {
+"note": "Angles regroup from active_stories[].angles using CIO taxonomy only.",
+"spotlight_angle": "Geopolitics/reg"
+},
+"confidence_blind_spots": {
+"decision_frame": "Contested",
+"open_blind_spots": [
+{
+"story_id": "collect-w1-frontier-unit-econ",
+"text": "No independent same-harness cost-per-task jointly including Fable 5.1 + Astra + Flash (DeepSWE: Astra+Flash only).",
+"severity": "high"
+},
+{
+"story_id": "collect-w1-frontier-unit-econ",
+"text": "Anthropic 25\u201345% savings are vendor measurements on August 2026 usage mix; Firecrawl agentic builds show lower bill savings (15\u201330%).",
+"severity": "high"
+},
+{
+"story_id": "collect-w1-frontier-unit-econ",
+"text": "No measured cross-vendor production cache-hit-rate panel (Superpower crossover is rate-card math).",
+"severity": "medium"
+},
+{
+"story_id": "collect-w1-frontier-unit-econ",
+"text": "Astra long-context tier ($20/$75 short\u2192long) omitted from the simple three-lane slogan.",
+"severity": "medium"
+},
+{
+"story_id": "collect-w1-frontier-unit-econ",
+"text": "Gemini intro cliff may induce lock-in or migrate-before-Jan behavior not yet observable.",
+"severity": "medium"
+},
+{
+"story_id": "collect-w1-frontier-unit-econ",
+"text": "Leg B now has Primary+Specialist capability/harness receipts, but ranks conflict across suites (no single winner) \u2014 Contested held; next_receipt concrete still open.",
+"severity": "medium"
+}
+],
+"facts_avg": 0.86,
+"facts_avg_note": "Price-facts High only \u2014 NOT a board decision average",
+"decision_frame_note": "No single board confidence average while any Contested card is active",
+"blended_avg": null,
+"updated_at": "2026-09-16T03:00:30-04:00",
+"updated_by": "CIO+TruthBar",
+"no_blend_while_contested": true
+},
+"process_forge": [
+{
+"id": "forge-001",
+"title": "Source-class tags on every card (Primary/Fast/Specialist/Adversarial/Markets)",
+"status": "shipping",
+"owner_role": "CIO",
+"updated_at": "2026-09-16T03:13:00-04:00",
+"note": "Contract fields filled post-ship \u2014 already enforced on live write path",
+"example": false,
+"mutation": "Require source_classes on every Active card (Primary/Fast/Specialist/Adversarial/state/Markets)",
+"from_state": "Cards could ship without source class tags",
+"to_state": "No receipts / no source_classes \u2192 NO RECEIPTS / intake block; classes visible on wall
