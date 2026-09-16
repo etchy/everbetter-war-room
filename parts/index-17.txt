@@ -1,0 +1,14 @@
+es.ok) {
+try { freshness = await fRes.json(); } catch (e) { freshness = null; }
+}
+applyOpsAging(board, freshness);
+renderAll(board, org, "live");
+} catch (err) {
+applyOpsAging(FALLBACK_BOARD, null);
+renderAll(FALLBACK_BOARD, FALLBACK_ORG, "fallback");
+}
+}
+boot();
+</script>
+</body>
+</html>
