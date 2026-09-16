@@ -1,1 +1,67 @@
-<!-- pages-bridge source: index-5.txt -->
+k",
+"watch": "watch-w1-01",
+"cio_self_kill": "SURVIVES Contested (Job B upgrade)",
+"updated_at": "2026-09-16T03:02:30-04:00"
+},
+"production": true,
+"csl_hygiene_pass_at": "2026-09-16T03:00:12-04:00",
+"freshness_ops": {
+"contested_cap": "While Contested/null decision confidence, freshness_bucket \u2208 {Breaking, Developing} only \u2014 Settled forbidden (Live cap)",
+"enforcer": "COO",
+"next_receipt_owner": "CIO",
+"forge": "forge-005",
+"updated_at": "2026-09-16T07:03:23+00:00"
+},
+"contested_schema": {
+"required": [
+"contested",
+"contested_legs",
+"next_receipt",
+"self_kill_attempt"
+],
+"freshness_max_while_contested": "Live",
+"settled_forbidden_while_contested": true,
+"next_receipt_rule": "Concrete evidence that retires a leg or graduates \u2014 not 'more news'",
+"from_forge": "forge-005",
+"from_aa": "AA-20260916-003",
+"updated_at": "2026-09-16T03:05:15-04:00",
+"owner": "CIO",
+"next_receipt_shape": "string concrete on card.next_receipt; optional next_receipt_detail object"
+}
+},
+"active_stories": [
+{
+"id": "collect-w1-frontier-unit-econ",
+"status": "active",
+"example": false,
+"label": null,
+"updated_at": "2026-09-16T03:07:30-04:00",
+"freshness_bucket": "Live",
+"headline": "Frontier unit economics collide: Fable 5.1 cache cut vs Astra Fast surcharge vs Gemini 3.8 Flash intro cliff",
+"link": "https://www.anthropic.com/claude-fable-and-mythos-5-1",
+"claim": "September 2026 frontier releases are rewriting agentic unit economics more than headline benchmarks: Fable 5.1 keeps $10/$50 list but cuts cache reads to $0.25/M; GPT-6 Astra lists at $10/$50 (Fast mode 2\u00d7 on short-context tokens); Gemini 3.8 Flash holds $0.75/$3.75 intro through 2026-12-31 then doubles to $1.50/$7.50.",
+"one_sentence_take": "Three verified pricing regimes landed in days \u2014 which becomes the default agentic spend lane this quarter is Contested between economics and capability/harness claims.",
+"bullets": [
+"Primary: Anthropic \u2014 Fable 5.1 $10/$50; cache reads $0.25/M (75% cut); vendor estimates ~25% typical / ~45% highly agentic savings vs Fable 5.",
+"Primary: OpenAI pricing \u2014 gpt-6-astra short-context $10/$50; Fast mode priced at 2\u00d7 ($20/$100); cached input $1.00/M (4\u00d7 Fable cache reads).",
+"Primary: Google \u2014 Gemini 3.8 Flash intro $0.75/$3.75 through 2026-12-31; standard $1.50/$7.50 from 2027-01-01 (blog + API pricing page).",
+"Specialist tension: list-price winner (Flash) can lose on cost-per-task if token intensity rises; Fable cache economics win only with high hit rates / stable prefixes.",
+"Decision surface stays open: build/buy/ship default for agentic production spend \u2014 not settled by benches alone."
+],
+"explainer": "CIO pressure-test (2026-09-16): three-lane price facts corroborate across independent Primary pages. Contested is the decision frame \u2014 whether cache/intro/Fast economics dominate lane choice (Leg A) or capability/harness/distribution claims dominate and pricing is noise (Leg B). No averaged 'winner.' High is withheld on the decision; price facts alone would clear High.",
+"point": "Unit economics moved in footnotes (cache, Fast, intro cliffs) as much as in model cards.",
+"motive": "Labs want share of agentic spend; buyers want cost-per-task certainty before locking a default stack.",
+"bottom_line": "Recalculate cost-per-task with your cache-hit and token-intensity profile before naming a default \u2014 list price alone misleads.",
+"confidence": null,
+"confidence_label": "Contested",
+"facts_confidence": 0.86,
+"facts_confidence_label": "High",
+"blind_spot": "No independent same-harness cost-per-task jointly including Fable 5.1 + Astra + Flash (DeepSWE: Astra+Flash only).",
+"blind_spots": [
+"No independent same-harness cost-per-task jointly including Fable 5.1 + Astra + Flash (DeepSWE: Astra+Flash only).",
+"Anthropic 25\u201345% savings are vendor measurements on August 2026 usage mix; Firecrawl agentic builds show lower bill savings (15\u201330%).",
+"No measured cross-vendor production cache-hit-rate panel (Superpower crossover is rate-card math).",
+"Astra long-context tier ($20/$75 short\u2192long) omitted from the simple three-lane slogan.",
+"Gemini intro cliff may induce lock-in or migrate-before-Jan behavior not yet observable.",
+"Leg B now has Primary+Specialist capability/harness receipts, but ranks conflict across suites (no single winner) \u2014 Contested held; next_receipt concrete still open.",
+"No independent DeepSWE public row for Fable 5.1; OpenAI-quoted Fable 5.1 DeepSWE 67.4% u
